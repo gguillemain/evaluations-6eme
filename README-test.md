@@ -1,6 +1,1 @@
-# Test de création de fichier
-
-Ce fichier a été créé comme test pour vérifier l'accès à l'API GitHub.
-
-## Contenu du dépôt
-Ce dépôt contient des évaluations de mathématiques pour la classe de 6ème, en versions bilingue et non bilingue.
+IyBUZXN0IGRlIGNyw6lhdGlvbiBkZSBmaWNoaWVyCgpDZSBmaWNoaWVyIGEgw6l0w6kgY3LDqcOpIGNvbW1lIHRlc3QgcG91ciB2w6lyaWZpZXIgbCdhY2PDqHMgw6AgbCdBUEkgR2l0SHViLgoKIyMgQ29udGVudSBkdSBkw6lww7R0CkNlIGTDqXDDtHQgY29udGllbnQgZGVzIMOpdmFsdWF0aW9ucyBkZSBtYXRow6ltYXRpcXVlcyBwb3VyIGxhIGNsYXNzZSBkZSA2w6htZSwgZW4gdmVyc2lvbnMgYmlsaW5ndWUgZXQgbm9uIGJpbGluZ3VlLg==
