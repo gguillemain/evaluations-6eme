@@ -1,0 +1,44 @@
+%%!TEX TS-program = latex
+\include{debut}
+
+\begin{document}
+\pagestyle{empty}
+\section*{Devoir de synthèse}
+\addcontentsline{toc}{section}{Devoir de synthèse-Angles}
+
+\exo{Exercice 1 : }\\
+Mesure les angles et complète le tableau.
+\begin{multicols}{2}
+ \begin{pspicture}(0,0)(6,6)
+\SpecialCoor
+\pstGeonode[PointSymbol=none,PointName=none](1.5;50){A1}(1.5;180){B1}
+\pstGeonode[PointSymbol=none,PointName=default](4,1){C}
+\pstTranslation[PointSymbol=+,PointName=default,PosAngle={0,-90}]{O}{C}{A1,B1}[A,B]
+\pstLineAB[nodesepB=-0.5]{C}{A}
+\pstLineAB[nodesepB=-3]{C}{B}
+\pstMarkAngle{A}{C}{B}{}
+[Suite des autres angles...]
+\end{pspicture}
+
+\columnbreak
+\setlength{\arrayrulewidth}{1pt}
+\begin{tabular}{|p{2cm}|p{4.5cm}|c|}
+\hline
+\rule{0cm}{0.4cm}Nom&Nature de l'angle&Mesure\\
+\hline
+\rule{0cm}{0.8cm}&&\\
+\hline
+\rule{0cm}{0.8cm}&&\\
+\hline
+\rule{0cm}{0.8cm}&&\\
+\hline
+\rule{0cm}{0.8cm}&&\\
+\hline
+\rule{0cm}{0.8cm}&&\\
+\hline
+\end{tabular}
+\end{multicols}
+
+[Suite des exercices...]
+
+\end{document}
