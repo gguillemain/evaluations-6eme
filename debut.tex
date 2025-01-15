@@ -1,4 +1,2395 @@
-\documentclass[12pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[french]{babel}
+
+\usepackage{etex}%
+\usepackage{ae,lmodern}
+	\usepackage[latin1]{inputenc}
+	
+
+	\usepackage[T1]{fontenc}
+\usepackage{emerald}
+	\usepackage{fouriernc}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%LIVRE 5EME!!!!!!!!!!!!!!!!!!!!!!!!
+	\usepackage{frcursive}
+\usepackage{xlop}
+\usepackage{epic}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{icomma}
+	\renewcommand{\familydefault}{\sfdefault}
+\usepackage{footnotehyper}
+\usepackage{pst-all,pst-blur,pst-coil,pst-grad,pst-eucl}
+	\usepackage{amsmath,amssymb,amsfonts,textcomp,makeidx,mathcomp}
+	\renewcommand{\ttdefault}{lmtt}
+	\usepackage[normalem]{ulem}
+	\usepackage{fancybox}
+	\usepackage{tabularx}
+	\usepackage{pifont}
+	\usepackage{dcolumn}
+	\usepackage{textcomp}
+	\usepackage{multicol}
+	\usepackage{xifthen}
+	\usepackage{lscape}
+	\newcommand{\euro}{~\eurologo~}
+	\newcommand{\eurosans}{~\eurologo}
+	\usepackage{graphics}
+	\usepackage[frenchb]{babel}
+	\usepackage{german}
+	\usepackage[np]{numprint}
+	\usepackage{multirow}
+	\usepackage{array}
+	\usepackage{hhline}% des lignes complexes dans les taBleaux
+	\usepackage{cancel}% pour barrer des termes dans les formules
+	\usepackage{ifthen}% pour faire des tests
+        \usepackage{fp}% pour faire des calculs dans LaTeX
+        \usepackage{setspace}% 
+        \usepackage{enumitem}
+        \usepackage{geometry}
+        \usepackage[sf,sl,outermarks]{titlesec}
+        \usepackage[Glenn]{fncychap}
+        \usepackage{dashrule}
+\usepackage{tikz,simplekv}
+\usetikzlibrary{matrix,positioning}
+\usetikzlibrary{shapes,snakes}
+\usetikzlibrary{decorations.text}
+\usepackage{colortbl}
+	\usepackage{lcg,calc}
+	\usepackage{graphicx}
+	\usepackage{lmodern}
+	\usepackage{comfortaa}
+	\usepackage{bclogo}
+		\usepackage{soul}%uderline custom
+\usepackage{scratch3}
+\usepackage{pst-platon}
+%\usepackage{pstplaton}
+\usepackage{titletoc}
+\usepackage{tocloft}
+%\usepackage{makeidx}
+\usepackage{imakeidx}
+%\usepackage{tovsec2}
+\usepackage{chngcntr}
+\usepackage{pst-solides3d}
+\usepackage{pgfplots}
+\usetikzlibrary{calc,decorations.pathmorphing,patterns}
+
+
+
+\pgfdeclaredecoration{penciline}{initial}{
+    \state{initial}[width=+\pgfdecoratedinputsegmentremainingdistance,
+    auto corner on length=1mm,]{
+        \pgfpathcurveto%
+        {% From
+            \pgfqpoint{\pgfdecoratedinputsegmentremainingdistance}
+                      {\pgfdecorationsegmentamplitude}
+        }
+        {%  Control 1
+        \pgfmathrand
+        \pgfpointadd{\pgfqpoint{\pgfdecoratedinputsegmentremainingdistance}{0pt}}
+                    {\pgfqpoint{-\pgfdecorationsegmentaspect
+                     \pgfdecoratedinputsegmentremainingdistance}%
+                               {\pgfmathresult\pgfdecorationsegmentamplitude}
+                    }
+        }
+        {%TO 
+        \pgfpointadd{\pgfpointdecoratedinputsegmentlast}{\pgfpoint{1pt}{1pt}}
+        }
+    }
+    \state{final}{}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  LAYOUT
+
+\setlength\paperheight{297mm}
+\setlength\paperwidth{210mm}
+\setlength{\textheight}{28cm}
+\setlength{\textwidth}{18cm}
+\geometry{top=0.2cm,left=1cm,bottom=0.7cm, right=1cm}
+
+
+%ne pas se fier au nom
+\definecolor{jorange}{rgb}{0.179,0.628,0.898}
+\definecolor{violet}{rgb}{0.695,0.07,0.558}
+\definecolor{violetclair}{rgb}{0.998,0.5,1}
+\definecolor{violetfonce}{rgb}{0.3,0.03,0.238}
+\definecolor{vertclair}{rgb}{0.89,0.95,0.40}
+\definecolor{vert}{rgb}{0.552,0.764,0.509}
+\definecolor{vert1}{rgb}{0.79,1,0.43}
+\definecolor{orange}{rgb}{0.179,0.628,0.898}
+\definecolor{orrange}{rgb}{1,0.69,0}
+\definecolor{bleuclair}{rgb}{0.468,0.867,0.998}
+\definecolor{coulecon}{rgb}{0.758,0.805,0.945}
+
+
+
+%\renewcommand \thesection {\@arabic \c@section~-} %Tu as acc\`es a� \Alph, \alph, \Roman, \roman, \arabic
+
+\newsavebox{\circlebox}
+\savebox{\circlebox}{\fontencoding{OMS}\selectfont\Large\char13}
+\newlength{\circleboxwdht}
+\newcommand{\centercircle}[1]{%
+  \setlength{\circleboxwdht}{\wd\circlebox}%
+  \addtolength{\circleboxwdht}{\dp\circlebox}%
+  \raisebox{0.4\dp\circlebox}{%
+    \parbox[][\circleboxwdht][c]{\wd\circlebox}{\centering#1}}%
+  \llap{\usebox{\circlebox}}%
+}
+%sectionsssssss
+%%%%%%%%%%%%%%%%Probleme
+%#1 ontro
+%#2 calcul ligne
+%#3 calucl pos\'e
+%#4 ccl
+\newcommand{\pbm}[4]{
+\begin{tabular}{p{5cm}|c}
+\multicolumn{2}{c}{#1}\\
+&\multirow{3}{3cm}{#3}\\
+{#2}&\\
+&\\
+\rule{1cm}{0cm}&\\
+\multicolumn{2}{c}{#4}
+\end{tabular}
+}
+
+\newcommand{\pbmsup}[3]{
+\begin{multicols}{2}
+\textbf{\underline{#1}}
+\columnbreak
+#2\\
+#3
+\end{multicols}
+
+}
+
+\newcommand{\trirectcomp}[5]{
+%#1 : point rectangle #2 pointangledroit #3 pointcompasinter #4longueur cot\'e angle droit #5 long. hypot\'enuse 
+\pstGeonode[CurveType=polygon,PointSymbol=none,PosAngle={90,0}](0,0){#1}(#4,0){#2}
+\psset{PointSymbol=none, PointName=none}
+\pstRotation[RotAngle=90]{#1}{#2}[K1]
+\pstGeonode(0,#5){Z1}
+\pstInterLC{#1}{K1}{#2}{Z1}{N1}{M1}
+\psset{PointSymbol=none, PointName=default}
+\pstGeonode(N1){#3}
+\pstRightAngle[RightAngleSize=0.15]{#2}{#1}{#3}
+\pstLineAB{#1}{#3}
+\pstLineAB{#2}{#3}
+}
+
+\newcommand{\tricomp}[6]{
+%#1 : point1 #2 point2 #3 pointcompasinter #4 longueur cot\'e point1point2 #5 longueur cot\'e point1point3 #6 longueur cot\'e point2point3
+
+\pstGeonode[CurveType=polygon,PointSymbol=none,PosAngle={180,0}](0,0){#1}(#4,0){#2}
+\psset{PointSymbol=none, PointName=none}
+\pstGeonode(#5,0){P1}(#4,#6){P2}
+\pstInterCC{#1}{P1}{#2}{P2}{N1}{M1}
+\psset{PointSymbol=none, PointName=default}
+\pstGeonode[PosAngle=90](N1){#3}
+\pstLineAB{#1}{#3}
+\pstLineAB{#2}{#3}
+}
+
+\newcounter{Num}
+\setcounter{Num}{0}
+\newcounter{Oppose}
+\setcounter{Oppose}{0}
+%\newcounter{Coef}
+%\setcounter{Coef}{1}
+
+\newcommand{\trirapp}[7][m]{
+%%# options : m par defaut marque angle et mesure -  t marque que les angles seulement - r deuxieme angle est droit - i isoc\`ele angle base - s isoc\`ele angle sommet  #2 : point1 #3 point3 #4 pointrapporteurinter #5 longueur cot\'e point1point2 #6 angle point2point1point3 #7 angle point1point2point3 
+
+\pstGeonode[CurveType=polygon,PointSymbol=none,PointNameSep=0.2,PosAngle={180,0}](0,0){#2}(#5,0){#3}
+%\psset{PointSymbol=none, PointName=none}
+
+\setcounter{Num}{#7}
+\setcounter{Oppose}{\value{Num}*(-1)}
+
+\pstRotation[RotAngle=#6,PointSymbol=none, PointName=none]{#2}{#3}[Z]
+\pstRotation[RotAngle=\theOppose,PointSymbol=none, PointName=none]{#3}{#2}[Y]
+\pstInterLL[PosAngle=90,PointSymbol=none,PointNameSep=0.2]{#2}{Z}{#3}{Y}{#4}
+\psset{PointSymbol=none, PointName=default}
+\pstLineAB{#2}{#4}
+\pstLineAB{#3}{#4}
+  \ifx m#1	
+	\pstMarkAngle[linecolor=cyan,MarkAngleRadius=0.4,linewidth=1.5pt]{#3}{#2}{#4}{}
+	\pstMarkAngle[linecolor=cyan,MarkAngleRadius=0.6,linewidth=1.5pt,LabelSep=0.9]{#3}{#2}{#4}{\small\textcolor{cyan}{$#6$\degres}}
+	\pstMarkAngle[linecolor=cyan,MarkAngleRadius=0.6,linewidth=1.5pt,LabelSep=0.9]{#4}{#3}{#2}{\small\textcolor{cyan}{$#7$\degres}}
+
+ \else
+  \ifx t#1
+  	\pstMarkAngle[linecolor=magenta,MarkAngleRadius=0.4,linewidth=1.5pt]{#2}{#4}{#3}{}
+	\pstMarkAngle[linecolor=magenta,MarkAngleRadius=0.6,linewidth=1.5pt]{#2}{#4}{#3}{}
+	\pstMarkAngle[linecolor=cyan,MarkAngleRadius=0.6,linewidth=1.5pt]{#4}{#3}{#2}{}
+	\else
+ \ifx r#1
+  	%\pstMarkAngle[linecolor=cyan,MarkAngleRadius=0.4,linewidth=1.5pt]{#2}{#4}{#3}{}
+	\pstMarkAngle[linecolor=cyan,MarkAngleRadius=0.6,linewidth=1.5pt,LabelSep=0.9]{#3}{#2}{#4}{\small\textcolor{cyan}{$#6$\degres}}
+	\pstRightAngle[linecolor=cyan,RightAngleSize=0.6,linewidth=1.5pt]{#4}{#3}{#2}
+	\else
+ \ifx i#1
+  	%\pstMarkAngle[linecolor=cyan,MarkAngleRadius=0.4,linewidth=1.5pt]{#2}{#4}{#3}{}
+	\pstMarkAngle[linecolor=cyan,MarkAngleRadius=0.6,linewidth=1.5pt,LabelSep=0.9]{#4}{#3}{#2}{\small\textcolor{cyan}{$#7$\degres}}
+%	\pstRightAngle[linecolor=cyan,RightAngleSize=0.6,linewidth=1.5pt]{#4}{#3}{#2}
+	\pstSegmentMark{#2}{#4}
+	\pstSegmentMark{#3}{#4}
+	\else
+ \ifx s#1
+  	%\pstMarkAngle[linecolor=cyan,MarkAngleRadius=0.4,linewidth=1.5pt]{#2}{#4}{#3}{}
+	\pstMarkAngle[linecolor=cyan,MarkAngleRadius=0.6,linewidth=1.5pt,LabelSep=0.9]{#4}{#3}{#2}{\small\textcolor{cyan}{$#7$\degres}}
+%	\pstRightAngle[linecolor=cyan,RightAngleSize=0.6,linewidth=1.5pt]{#4}{#3}{#2}
+	\pstSegmentMark{#2}{#3}
+	\pstSegmentMark{#3}{#4}
+	\else
+  \mathrm{Illegal~option}%
+  \fi\fi\fi\fi\fi
+
+}
+
+\newcommand{\rectcomp}[6]{
+%#1 : point rectangle #2 pointangledroit #3 pointcompasinter #4 point oppose angle droit #5longueur cot\'e angle droit #6 long. diag 
+\pstGeonode[CurveType=polygon,PointSymbol=none,PosAngle={-45,0}](0,0){#1}(#5,0){#2}
+\psset{PointSymbol=none, PointName=none}
+\pstRotation[RotAngle=90]{#1}{#2}[K1]
+\pstGeonode(0,#6){Z1}
+\pstInterLC{#1}{K1}{#2}{Z1}{N1}{M1}
+\psset{PointSymbol=none, PointName=default}
+\pstGeonode[PosAngle=-90](N1){#4}
+%\pstRightAngle[RightAngleSize=0.15]{#2}{#1}{#3}
+\pstTranslation[PosAngle=-90]{#1}{#2}{#4}[#3]
+\pstLineAB{#1}{#2}
+\pstLineAB{#2}{#3}
+\pstLineAB{#3}{#4}
+\pstLineAB{#4}{#1}
+}
+
+\newcommand{\trirectdroit}[5]{
+%#1 : point rectangle #2 pointangledroit1 #3 pointangledroit2 #4longueur cot\'e angle droit1 #5 long. cot\'eangle droit2 
+\pstGeonode[CurveType=polygon,PointSymbol=none,PosAngle={-45,0}](0,0){#1}(#4,0){#2}(0,#5){#3}
+\pstRightAngle{#2}{#1}{#3}
+}
+
+\newcommand{\rectdroit}[6]{
+%#1 : point rectangle #2 pointangledroit1 #3 pointangledroit2 #4pointopppose angle droit #5longueur cot\'e angle droit1 #6 long. cot\'eangle droit2 
+\pstGeonode[CurveType=polygon,PointSymbol=none,PosAngle={-45,0}](0,0){#1}(#5,0){#2}(0,#6){#4}
+%\pstRightAngle{#2}{#1}{#3}
+\pstTranslation{#1}{#2}{#4}[#3]
+\pstLineAB{#1}{#2}
+\pstLineAB{#2}{#3}
+\pstLineAB{#3}{#4}
+\pstLineAB{#4}{#1}
+}
+\newcounter{SecNb}
+\setcounter{SecNb}{0}
+\newcounter{SecDebut}
+\setcounter{SecDebut}{0}
+\newcounter{SecFin}
+\setcounter{SecFin}{0}
+\newcounter{SecTaille}
+\setcounter{SecTaille}{0}
+
+\newcommand{\anglesec}[4]{
+% #1 Nb secteurs #2 couleur #3 secDebut #4 label
+\setcounter{SecNb}{#1}
+\setcounter{SecDebut}{#3}
+\setcounter{SecTaille}{360/\value{SecNb}}
+\setcounter{SecFin}{\value{SecTaille}+\value{SecDebut}}
+ 		 \begin{pspicture}(-1,-1)(1,1)
+		 \psset{linewidth=1.2pt,linecolor=RoyalBlue}
+		 \SpecialCoor
+		 \pstGeonode[PointSymbol=none,PointName=none](0,0){O}(1;\theSecDebut){A}(1;\theSecFin){B}
+		\psset{unit=1}
+		\multido{\n=0+\theSecTaille}{\theSecNb}{
+		\rput{\n}(0,0){\pswedge[fillstyle=solid,fillcolor=#2,linecolor=white]{1}{0}{\theSecTaille}}
+		}
+				 \pstMarkAngle[MarkAngleRadius=0.5,LabelSep=0.7]{A}{O}{B}{\textcolor{white}{$#4$}}
+		 \pswedge[fillstyle=solid,fillcolor=red,linecolor=white]{0.5}{\theSecDebut}{\theSecFin}
+		\end{pspicture}
+}
+
+\newcommand{\anglesecfin}[5]{
+% #1 Nb secteurs #2 couleur #3 secDebut #4Secfin #5 label
+\setcounter{SecNb}{#1}
+\setcounter{SecDebut}{#3}
+\setcounter{SecTaille}{360/\value{SecNb}}
+\setcounter{SecFin}{{\value{SecDebut}+35}}%+{\value{SecFin}/2}}%+\value{SecDebut}}
+ 		 \begin{pspicture}(-1,-1)(1,1)
+		 \psset{linewidth=1.2pt,linecolor=RoyalBlue}
+		 \SpecialCoor
+		 \pstGeonode[PointSymbol=none,PointName=none](0,0){O}(1;\theSecDebut){A}(1;#4){B}
+		\psset{unit=1}
+		\multido{\n=0+\theSecTaille}{\theSecNb}{
+		\rput{\n}(0,0){\pswedge[fillstyle=solid,fillcolor=#2,linecolor=white]{1}{0}{\theSecTaille}}
+		}
+		\pstMarkAngle[MarkAngleRadius=0.5,LabelSep=0.7]{A}{O}{B}{}
+
+		 \pswedge[fillstyle=solid,fillcolor=red,linecolor=white]{0.5}{\theSecDebut}{#4}
+		 		\rput(0.3;\theSecFin){\textcolor{white}{$#5$}}
+		\end{pspicture}
+}
+
+
+%%%%%%%%%%%%%%%%%simplification \'ecriture
+\newcommand{\gv}{Gr\"o\ss envorstellung~}
+
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+
+
+
+\titleformat{\section}[display]
+  {\normalfont}%
+  {\filright%
+   \normalsize\tiny\hskip 5ptChap.~\thechapter~-~Feuille d'exercices  \tiny \thesection\enspace\vspace{-1cm}}
+  {8pt}
+{\Large\bfseries\filleft\textcolor{violetfonce}}
+[\vspace{-10pt}]
+
+
+
+\titleformat*{\section}{\itshape}
+
+\titleformat{\subsection}
+ {\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+\titleformat{\subsection}[hang]
+  {\normalfont}%
+  {\Large\psframe[fillcolor=jorange,fillstyle=solid,linewidth=0pt,linecolor=orange](-0.1,-0.2)(0.5,0.48)\thesubsection}  
+  {0.3cm}
+  {\Large\scshape\bfseries}
+ 
+%\chapterfont{\color{white}}{\selectfont}
+
+
+\renewcommand{\thesubsection}{\Alph{subsection}}
+
+%\renewcommand\section{\@startsection{section}{1}
+     %{0mm}% Indentation
+      %{0.3cm \@plus -1ex \@minus -.2ex}%espace au dessus du titre
+      %{2.3ex \@plus .2ex}%espace en dessous du titre
+      %{\reset@font\Large\scshape\bfseries}}%mise en forme taille Large, capitales, gras
+
+%\renewcommand\subsection{\@startsection{subsection}{1}
+   %   {0mm}% Indentation
+     % {0.3cm \@plus -1ex \@minus -.2ex}%espace au dessus du titre
+      %{2.3ex \@plus .2ex}%espace en dessous du titre
+      %{\reset@font\Large\scshape\bfseries}}%mise en forme taille Large, capitales, gras
+
+
+
+
+
+\makeatother
+
+\makeatletter
+\renewcommand{\@chapapp}{Kapitel} %redefini le mot chapitre
+\makeatother
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% d\'efinition PUCES
+\renewcommand{\theenumi}{\textbf{\arabic{enumi}}}
+\renewcommand{\labelenumi}{\textbf{\theenumi.}}
+\renewcommand{\theenumii}{\textbf{\alph{enumii}}}
+\renewcommand{\labelenumii}{\textbf{\theenumii.}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%PRESENTATION
+\newcommand\NomPrenom{\textbf{\textit{Nom :\hfill Pr\'enom :\hfill Classe :}}\hspace*{2cm}}
+
+\newcommand*{\titre}[1]{{\centering\bfseries\scshape\Large#1\par}}
+
+\newcommand*{\ladate}[1]{\vspace{0.1cm}{\centering\itshape#1\par}\vspace{0.1cm}}
+
+\newcommand*{\ubungbox}[1]{\fboxsep 0pt%
+  \fcolorbox{yellow}{orrange}{#1}}
+
+\newcommand*{\exo}[1]{\vspace{0.35cm plus 0.15cm minus 0.15cm}\rule{1ex}{1ex}\hspace{1ex}{\ubungbox{\textbf{#1}}}\vspace{0.1cm plus 0.1cm minus 0.1cm}}
+
+\newcommand*{\aufgabe}[1]{\vspace{0.35cm plus 0.15cm minus 0.15cm}\rule{6ex}{1ex}\hspace{3ex}\textsc{\textbf{#1}}\vspace{0.1cm plus 0.1cm minus 0.1cm}}
+
+\newcommand\ligne[5]{\vskip#1\hrule height#2\vskip#3\hrule height#4\vskip#5}
+\newcommand*{\DoubleLigne}[1]{#1\ligne{5pt plus 2pt minus 2pt}{1.5pt}{2pt}{0.3pt}{5pt plus 2pt minus 2pt}}
+\newcommand*{\SimpleLigne}[1]{#1\ligne{4pt plus 2pt minus 2pt}{0.3pt}{0pt}{0pt}{5pt plus 2pt minus 2pt}}
+
+
+%
+% Puces
+\newenvironment{Puces}[1][1cm]%
+{\begin{list}%
+	{$\bullet$}%
+	{	\setlength{\leftmargin}{#1}% marge ?		\setlength{\itemsep}{3ptplus3ptminus2pt}% espacement entre item
+		\setlength{\topsep}{3ptplus3ptminus2pt}% espacement entre le paragraphe 
+	}}%
+{\end{list}}
+
+
+\newcommand{\beispiel}{
+\textit{\large\ding{253}Beispiel : }
+\smallskip
+}
+
+\newcommand{\bemerkung}{
+\textit{\large\ding{46}Bemerkung : }
+\smallskip
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%LES CADRES
+
+\newcommand{\cadrevok}[1]{
+\begin{bclogo}[logo=\bcdallemagne,couleur = cyan, arrondi = 0.1, ombre = true, epOmbre = 0.15, couleurOmbre = black!30,barre=snake,couleurBarre=white,blur]{~\textcolor{white}{Vokabeln}}
+\noindent#1
+\end{bclogo}
+}
+\newcommand{\cadretrad}[1]{
+\begin{bclogo}[logo=\bcdallemagne,couleur = cyan, arrondi = 0.1,barre=snake,couleurBarre=white,blur,couleurBord=cyan]{~\textcolor{white}{Vokabeln}}
+\noindent#1
+\end{bclogo}
+}
+
+\newcommand{\cadreinfo}[2]{
+\begin{bclogo}[logo=\bcinfo,couleur=coulecon, epBord=0, arrondi = 0.1, ombre = false, epOmbre = 0.15, couleurOmbre = black!30]{~\fboxsep 2pt\fcolorbox{coulecon}{cyan}{\textcolor{white}{#1}}}
+#2
+\end{bclogo}
+}
+
+\newcommand{\cadrecrayon}[2]{
+\begin{bclogo}[logo=\bccrayon,couleur=coulecon, epBord=0, arrondi = 0.1, ombre = false, epOmbre = 0.15, couleurOmbre = black!30]{~\fboxsep 2pt\fcolorbox{coulecon}{cyan}{\textcolor{white}{#1}}}
+#2
+\end{bclogo}
+}
+
+\newcommand{\horloge}[2]{
+\psset{yunit=0.8}
+\pstGeonode[PointName=none](1,1){O}
+\psset{PointSymbol=none,PointName=none}
+\pstGeonode(1,3){A}(1,2.775){B}(1,2.565){C}(1,2.85){D}
+\pstGeonode(1,2.7){P}(1,2){G}
+\footnotesize
+\pstCircleOA{O}{A}
+\pstLineAB{A}{B}
+\pstLineAB{A}{D}
+\rput(C){12}
+\multido{\ntr=-30+{-30},\i=1+1}{11}{
+\pstRotation[RotAngle=\ntr]{O}{A}[A\ntr]
+\pstRotation[RotAngle=\ntr]{O}{B}[B\ntr]
+\pstRotation[RotAngle=\ntr]{O}{C}[C\ntr]
+\pstLineAB{A\ntr}{B\ntr}
+\rput(C\ntr){\i}
+}
+\multido{\r=6+6}{59}{
+\pstRotation[RotAngle=\r]{O}{A}[A\r]
+\pstRotation[RotAngle=\r]{O}{D}[D\r]
+\pstLineAB{A\r}{D\r}
+}
+\pstRotation[RotAngle=#1]{O}{P}[P1]
+\pstRotation[RotAngle=#2]{O}{G}[G1]
+\psline[linecolor=red](O)(P1)
+\psline[linecolor=blue,linewidth=2pt](O)(G1)
+\normalsize
+
+}
+
+\newcommand{\horlogenue}{
+\psset{yunit=0.8}
+\pstGeonode[PointName=none](1,1){O}
+\psset{PointSymbol=none,PointName=none}
+\pstGeonode(1,3){A}(1,2.775){B}(1,2.565){C}(1,2.85){D}
+\footnotesize
+\pstCircleOA{O}{A}
+\pstLineAB{A}{B}
+\pstLineAB{A}{D}
+\rput(C){12}
+\multido{\ntr=-30+{-30},\i=1+1}{11}{
+\pstRotation[RotAngle=\ntr]{O}{A}[A\ntr]
+\pstRotation[RotAngle=\ntr]{O}{B}[B\ntr]
+\pstRotation[RotAngle=\ntr]{O}{C}[C\ntr]
+\pstLineAB{A\ntr}{B\ntr}
+\rput(C\ntr){\i}
+}
+\multido{\r=6+6}{59}{
+\pstRotation[RotAngle=\r]{O}{A}[A\r]
+\pstRotation[RotAngle=\r]{O}{D}[D\r]
+\pstLineAB{A\r}{D\r}
+}
+
+\normalsize
+
+}
+
+
+\newcommand{\horlogesec}[2]{%deBut et fin du secteur
+\psset{yunit=0.8}
+\pswedge[fillstyle=solid,fillcolor=violet!60](1,1){1.6}{#1}{#2}
+\pstGeonode[PointName=none](1,1){O}
+\psset{PointSymbol=none,PointName=none}
+\pstGeonode(1,3){A}(1,2.775){B}(1,2.565){C}(1,2.85){D}
+
+\footnotesize
+\pstCircleOA{O}{A}
+\pstLineAB{A}{B}
+\pstLineAB{A}{D}
+\rput(C){12}
+\multido{\ntr=-30+{-30},\i=1+1}{11}{
+\pstRotation[RotAngle=\ntr]{O}{A}[A\ntr]
+\pstRotation[RotAngle=\ntr]{O}{B}[B\ntr]
+\pstRotation[RotAngle=\ntr]{O}{C}[C\ntr]
+\pstLineAB{A\ntr}{B\ntr}
+\rput(C\ntr){\i}
+}
+\multido{\r=6+6}{59}{
+\pstRotation[RotAngle=\r]{O}{A}[A\r]
+\pstRotation[RotAngle=\r]{O}{D}[D\r]
+\pstLineAB{A\r}{D\r}
+}
+
+\normalsize
+
+}
+
+\newcommand{\horlogeseccorr}[3]{%deBut et fin du secteur
+\psset{yunit=0.8}
+\pswedge[fillstyle=solid,fillcolor=#3](1,1){1.6}{#1}{#2}
+\pstGeonode[PointName=none](1,1){O}
+\psset{PointSymbol=none,PointName=none}
+\pstGeonode(1,3){A}(1,2.775){B}(1,2.565){C}(1,2.85){D}
+
+\footnotesize
+\pstCircleOA{O}{A}
+\pstLineAB{A}{B}
+\pstLineAB{A}{D}
+\rput(C){12}
+\multido{\ntr=-30+{-30},\i=1+1}{11}{
+\pstRotation[RotAngle=\ntr]{O}{A}[A\ntr]
+\pstRotation[RotAngle=\ntr]{O}{B}[B\ntr]
+\pstRotation[RotAngle=\ntr]{O}{C}[C\ntr]
+\pstLineAB{A\ntr}{B\ntr}
+\rput(C\ntr){\i}
+}
+\multido{\r=6+6}{59}{
+\pstRotation[RotAngle=\r]{O}{A}[A\r]
+\pstRotation[RotAngle=\r]{O}{D}[D\r]
+\pstLineAB{A\r}{D\r}
+}
+
+\normalsize
+
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% PAVAGE
+\newcommand{\penrosevar}[1]{
+\begin{pspicture}(-5,2)(6,10)%pavage de penrose
+\psset{unit=#1,linewidth=0.5pt,linecolor=violetfonce,PointSymbol=none,PointName=none}
+\SpecialCoor
+\pstGeonode(1;0){A0}(1;72){A1}(1;144){A2}(1;216){A3}(1;288){A4}
+\pstInterLL{A2}{A1}{A4}{A0}{O0}
+\pspolygon(A0)(A1)(A2)(A3)(A4)
+\newcounter{m}
+\setcounter{m}{36}
+\multido{\n=0+1}{9}{
+\pstRotation[RotAngle=\them]{O0}{A0,A1,A2,A3,A4}[B0\n,B1\n,B2\n,B3\n,B4\n]
+\pspolygon(B0\n)(B1\n)(B2\n)(B3\n)(B4\n)
+\addtocounter{m}{36}
+}
+
+\pstRotation[RotAngle=108]{B00}{B01}[C0]
+\pstRotation[RotAngle=-108]{B01}{B00}[C1]
+\pspolygon(B01)(B00)(C0)(O0)(C1)
+\pstRotation[RotAngle=108,PointName=none]{O0}{B01,B00,C0,C1}[A01,A11,C01,C11]
+\pspolygon(A01)(A11)(C01)(O0)(C11)
+\pstRotation[RotAngle=108,PointName=none]{O0}{A01,A11,C01,C11}[A02,A12,C02,C12]
+\pspolygon(A02)(A12)(C02)(O0)(C12)
+
+\pstTranslation{A1}{B43}{A0,A1,A2,A3,A4,O0}[D0,D1,D2,D3,D4,O1]
+\multido{\n=0+1}{9}{
+\pstTranslation{A1}{B43}{B0\n,B1\n,B2\n,B3\n,B4\n}[D0\n,D1\n,D2\n,D3\n,D4\n]
+\pspolygon(D0\n)(D1\n)(D2\n)(D3\n)(D4\n)
+}
+
+\pstInterLL{O0}{B32}{O1}{D30}{X0}
+\newcounter{p}
+\setcounter{p}{72}
+\multido{\i=72+72}{3}{
+\multido{\n=0+1}{9}{
+\pstRotation[RotAngle=\i]{X0}{B0\n,B1\n,B2\n,B3\n,B4\n}[E0\i\n,E1\i\n,E2\i\n,E3\i\n,E4\i\n]
+\pspolygon(E0\i\n)(E1\i\n)(E2\i\n)(E3\i\n)(E4\i\n)
+}
+\pstRotation[RotAngle=\i]{X0}{A0,A1,A2,A3,A4}[E0\i,E1\i,E2\i,E3\i,E4\i]
+\pspolygon(E0\i)(E1\i)(E2\i)(E3\i)(E4\i)
+}
+
+\pstMiddleAB[PointName=none,PointSymbol=none]{D04}{D05}{M1}
+\pstMiddleAB[PointName=none,PointSymbol=none]{D35}{D25}{M2}
+\pstInterLL[PointName=none]{D35}{M1}{M2}{D05}{X2}
+
+
+\pstRotation[RotAngle=108]{D04}{D05}[N1]
+\pstRotation[RotAngle=-108]{D05}{D04}[N2]
+\pspolygon(D04)(D05)(N2)(O1)(N1)
+\pstRotation[RotAngle=108,PointName=none]{O1}{D04,D05,N2,N1}[D041,D051,N21,N11]
+\pspolygon(D041)(D051)(N21)(O1)(N11)
+\pstRotation[RotAngle=-108,PointName=none]{O1}{D04,D05,N2,N1}[D042,D052,N22,N12]
+\pspolygon(D042)(D052)(N22)(O1)(N12)
+
+\multido{\i=-72+-72}{3}{
+\pstRotation[RotAngle=\i]{X0}{O1}[O\i]
+}
+
+\pstRotation[RotAngle=108]{E02166}{E02167}[P1]
+\pstRotation[RotAngle=-108]{E02167}{E02166}[P2]
+\pspolygon(E02166)(E02167)(P2)(O-72)(P1)
+\pstRotation[RotAngle=108,PointName=none]{O-72}{E02166,E02167,P2,P1}[E021661,E021671,P21,P11]
+\pspolygon(E021661)(E021671)(P21)(O-72)(P11)
+\pstRotation[RotAngle=216,PointName=none]{O-72}{E02166,E02167,P2,P1}[E021662,E021672,P22,P12]
+\pspolygon(E021662)(E021672)(P22)(O-72)(P12)
+
+\pstRotation[RotAngle=108]{E01440}{E01441}[Q1]
+\pstRotation[RotAngle=-108]{E01441}{E01440}[Q2]
+\pspolygon(E01440)(E01441)(Q2)(O-144)(Q1)
+\pstRotation[RotAngle=108,PointName=none]{O-144}{E01440,E01441,Q2,Q1}[E014401,E014411,Q21,Q11]
+\pspolygon(E014401)(E014411)(Q21)(O-144)(Q11)
+\pstRotation[RotAngle=216,PointName=none]{O-144}{E01440,E01441,Q2,Q1}[E014402,E014412,Q22,Q12]
+\pspolygon(E014402)(E014412)(Q22)(O-144)(Q12)
+
+
+\pstRotation[RotAngle=108]{E0726}{E0727}[R1]
+\pstRotation[RotAngle=-108]{E0727}{E0726}[R2]
+\pspolygon(E0726)(E0727)(R2)(O-216)(R1)
+\pstRotation[RotAngle=108,PointName=none]{O-216}{E0726,E0727,R2,R1}[E07261,E07271,R21,R11]
+\pspolygon(E07261)(E07271)(R21)(O-216)(R11)
+\pstRotation[RotAngle=216,PointName=none]{O-216}{E0726,E0727,R2,R1}[E07262,E07272,R22,R12]
+\pspolygon(E07262)(E07272)(R22)(O-216)(R12)
+
+
+
+\multido{\i=72+72}{4}{
+\pstRotation[RotAngle=\i]{X2}{D00,D01,D02,D03,D04,D05,D06,D07,D08,B33}[D00\i,D01\i,D02\i,D03\i,D04\i,D05\i,D06\i,D07\i,D08\i,B33\i]
+\pstRotation[RotAngle=\i]{X2}{D041,D042,D051,D052,O1,N1,N11,N12,N2,N21,N22}[D041\i,D042\i,D051\i,D052\i,O1\i,N1\i,N11\i,N12\i,N2\i,N21\i,N22\i]
+\pspolygon(D04\i)(D05\i)(N2\i)(O1\i)(N1\i)
+\pspolygon(D041\i)(D051\i)(N21\i)(O1\i)(N11\i)
+\pspolygon(D042\i)(D052\i)(N22\i)(O1\i)(N12\i)
+\pspolygon(D00\i)(D01\i)(D02\i)(D03\i)(D04\i)(D05\i)(D06\i)(D07\i)(D08\i)(B33\i)
+}
+\end{pspicture}
+
+\pspolygon[fillcolor=vert,fillstyle=solid](O0)(C0)(E2724)(E3724)(B08)(B07)(C12)
+\pspolygon[fillcolor=vert,fillstyle=solid](O-216)(R1)(E0726)(E0725)(E0724)(E0723)(R22)
+\pspolygon[fillcolor=vert,fillstyle=solid](O1)(N12)(D01)(D00)(B33)(B43)(N21)
+\pspolygon[fillcolor=vert,fillstyle=solid](O-72)(P1)(E02166)(E02165)(E02164)(E02163)(P22)
+\pspolygon[fillcolor=vert,fillstyle=solid](O-144)(Q1)(E01440)(E0144)(E01448)(E01447)(Q22)
+\pspolygon[fillcolor=vert,fillstyle=solid](O1288)(N21288)(D051288)(B33288)(D00288)(D01288)(N12288)
+\pspolygon[fillcolor=vert,fillstyle=solid](O1216)(N21216)(D051216)(B33216)(D00216)(D01216)(N12216)
+\pspolygon[fillcolor=vert,fillstyle=solid](O1144)(N12144)(D042144)(D00144)(B33144)(D051144)(N21144)
+\pspolygon[fillcolor=vert,fillstyle=solid](O172)(N1272)(D04272)(D0072)(B3372)(D05172)(N2172)
+
+\pspolygon[fillcolor=violet,fillstyle=solid](O0)(C1)(B14)(B15)(C11)
+\pspolygon[fillcolor=violet,fillstyle=solid](O1)(D0672)(D0572)(D04288)(D03288)
+\pspolygon[fillcolor=violet,fillstyle=solid](O1288)(D03216)(D04216)(D04288)(N22288)
+\pspolygon[fillcolor=violet,fillstyle=solid](O172)(D06144)(D05144)(D0572)(N1172)
+\pspolygon[fillcolor=violet,fillstyle=solid](O172)(D06144)(D05144)(D0572)(N1172)
+}
+
+
+\newcommand{\penrose}{
+\begin{pspicture}(-5,2)(6,10)%pavage de penrose
+\psset{unit=0.5}%,linewidth=0.5pt,PointSymbol=none,PointName=none}
+\SpecialCoor
+\pstGeonode(1;0){A0}(1;72){A1}(1;144){A2}(1;216){A3}(1;288){A4}
+\pstInterLL{A2}{A1}{A4}{A0}{O0}
+\pspolygon(A0)(A1)(A2)(A3)(A4)
+\newcounter{m}
+\setcounter{m}{36}
+\multido{\n=0+1}{9}{
+\pstRotation[RotAngle=\them]{O0}{A0,A1,A2,A3,A4}[B0\n,B1\n,B2\n,B3\n,B4\n]
+\pspolygon(B0\n)(B1\n)(B2\n)(B3\n)(B4\n)
+\addtocounter{m}{36}
+}
+
+\pstRotation[RotAngle=108]{B00}{B01}[C0]
+\pstRotation[RotAngle=-108]{B01}{B00}[C1]
+\pspolygon(B01)(B00)(C0)(O0)(C1)
+\pstRotation[RotAngle=108,PointName=none]{O0}{B01,B00,C0,C1}[A01,A11,C01,C11]
+\pspolygon(A01)(A11)(C01)(O0)(C11)
+\pstRotation[RotAngle=108,PointName=none]{O0}{A01,A11,C01,C11}[A02,A12,C02,C12]
+\pspolygon(A02)(A12)(C02)(O0)(C12)
+
+\pstTranslation{A1}{B43}{A0,A1,A2,A3,A4,O0}[D0,D1,D2,D3,D4,O1]
+\multido{\n=0+1}{9}{
+\pstTranslation{A1}{B43}{B0\n,B1\n,B2\n,B3\n,B4\n}[D0\n,D1\n,D2\n,D3\n,D4\n]
+\pspolygon(D0\n)(D1\n)(D2\n)(D3\n)(D4\n)
+}
+
+\pstInterLL{O0}{B32}{O1}{D30}{X0}
+\newcounter{p}
+\setcounter{p}{72}
+\multido{\i=72+72}{3}{
+\multido{\n=0+1}{9}{
+\pstRotation[RotAngle=\i]{X0}{B0\n,B1\n,B2\n,B3\n,B4\n}[E0\i\n,E1\i\n,E2\i\n,E3\i\n,E4\i\n]
+\pspolygon(E0\i\n)(E1\i\n)(E2\i\n)(E3\i\n)(E4\i\n)
+}
+\pstRotation[RotAngle=\i]{X0}{A0,A1,A2,A3,A4}[E0\i,E1\i,E2\i,E3\i,E4\i]
+\pspolygon(E0\i)(E1\i)(E2\i)(E3\i)(E4\i)
+}
+
+\pstMiddleAB[PointName=none,PointSymbol=none]{D04}{D05}{M1}
+\pstMiddleAB[PointName=none,PointSymbol=none]{D35}{D25}{M2}
+\pstInterLL[PointName=none]{D35}{M1}{M2}{D05}{X2}
+
+
+\pstRotation[RotAngle=108]{D04}{D05}[N1]
+\pstRotation[RotAngle=-108]{D05}{D04}[N2]
+\pspolygon(D04)(D05)(N2)(O1)(N1)
+\pstRotation[RotAngle=108,PointName=none]{O1}{D04,D05,N2,N1}[D041,D051,N21,N11]
+\pspolygon(D041)(D051)(N21)(O1)(N11)
+\pstRotation[RotAngle=-108,PointName=none]{O1}{D04,D05,N2,N1}[D042,D052,N22,N12]
+\pspolygon(D042)(D052)(N22)(O1)(N12)
+
+\multido{\i=-72+-72}{3}{
+\pstRotation[RotAngle=\i]{X0}{O1}[O\i]
+}
+
+\pstRotation[RotAngle=108]{E02166}{E02167}[P1]
+\pstRotation[RotAngle=-108]{E02167}{E02166}[P2]
+\pspolygon(E02166)(E02167)(P2)(O-72)(P1)
+\pstRotation[RotAngle=108,PointName=none]{O-72}{E02166,E02167,P2,P1}[E021661,E021671,P21,P11]
+\pspolygon(E021661)(E021671)(P21)(O-72)(P11)
+\pstRotation[RotAngle=216,PointName=none]{O-72}{E02166,E02167,P2,P1}[E021662,E021672,P22,P12]
+\pspolygon(E021662)(E021672)(P22)(O-72)(P12)
+
+\pstRotation[RotAngle=108]{E01440}{E01441}[Q1]
+\pstRotation[RotAngle=-108]{E01441}{E01440}[Q2]
+\pspolygon(E01440)(E01441)(Q2)(O-144)(Q1)
+\pstRotation[RotAngle=108,PointName=none]{O-144}{E01440,E01441,Q2,Q1}[E014401,E014411,Q21,Q11]
+\pspolygon(E014401)(E014411)(Q21)(O-144)(Q11)
+\pstRotation[RotAngle=216,PointName=none]{O-144}{E01440,E01441,Q2,Q1}[E014402,E014412,Q22,Q12]
+\pspolygon(E014402)(E014412)(Q22)(O-144)(Q12)
+
+
+\pstRotation[RotAngle=108]{E0726}{E0727}[R1]
+\pstRotation[RotAngle=-108]{E0727}{E0726}[R2]
+\pspolygon(E0726)(E0727)(R2)(O-216)(R1)
+\pstRotation[RotAngle=108,PointName=none]{O-216}{E0726,E0727,R2,R1}[E07261,E07271,R21,R11]
+\pspolygon(E07261)(E07271)(R21)(O-216)(R11)
+\pstRotation[RotAngle=216,PointName=none]{O-216}{E0726,E0727,R2,R1}[E07262,E07272,R22,R12]
+\pspolygon(E07262)(E07272)(R22)(O-216)(R12)
+
+
+
+\multido{\i=72+72}{4}{
+\pstRotation[RotAngle=\i]{X2}{D00,D01,D02,D03,D04,D05,D06,D07,D08,B33}[D00\i,D01\i,D02\i,D03\i,D04\i,D05\i,D06\i,D07\i,D08\i,B33\i]
+\pstRotation[RotAngle=\i]{X2}{D041,D042,D051,D052,O1,N1,N11,N12,N2,N21,N22}[D041\i,D042\i,D051\i,D052\i,O1\i,N1\i,N11\i,N12\i,N2\i,N21\i,N22\i]
+\pspolygon(D04\i)(D05\i)(N2\i)(O1\i)(N1\i)
+\pspolygon(D041\i)(D051\i)(N21\i)(O1\i)(N11\i)
+\pspolygon(D042\i)(D052\i)(N22\i)(O1\i)(N12\i)
+\pspolygon(D00\i)(D01\i)(D02\i)(D03\i)(D04\i)(D05\i)(D06\i)(D07\i)(D08\i)(B33\i)
+}
+\end{pspicture}
+
+
+
+\rput{72}(4.75,-0.96){
+\begin{pspicture}(-5,2)(6,10)%pavage de penrose
+\psset{unit=0.5,linewidth=0.5pt,PointSymbol=none,PointName=none}
+\SpecialCoor
+\pstGeonode(1;0){A0}(1;72){A1}(1;144){A2}(1;216){A3}(1;288){A4}
+\pstInterLL{A2}{A1}{A4}{A0}{O0}
+\pspolygon(A0)(A1)(A2)(A3)(A4)
+\newcounter{om}
+\setcounter{om}{36}
+\multido{\n=0+1}{9}{
+\pstRotation[RotAngle=\theom]{O0}{A0,A1,A2,A3,A4}[B0\n,B1\n,B2\n,B3\n,B4\n]
+\pspolygon(B0\n)(B1\n)(B2\n)(B3\n)(B4\n)
+\addtocounter{om}{36}
+}
+
+\pstRotation[RotAngle=108]{B00}{B01}[C0]
+\pstRotation[RotAngle=-108]{B01}{B00}[C1]
+\pspolygon(B01)(B00)(C0)(O0)(C1)
+\pstRotation[RotAngle=108,PointName=none]{O0}{B01,B00,C0,C1}[A01,A11,C01,C11]
+\pspolygon(A01)(A11)(C01)(O0)(C11)
+\pstRotation[RotAngle=108,PointName=none]{O0}{A01,A11,C01,C11}[A02,A12,C02,C12]
+\pspolygon(A02)(A12)(C02)(O0)(C12)
+
+\pstTranslation{A1}{B43}{A0,A1,A2,A3,A4,O0}[D0,D1,D2,D3,D4,O1]
+\multido{\n=0+1}{9}{
+\pstTranslation{A1}{B43}{B0\n,B1\n,B2\n,B3\n,B4\n}[D0\n,D1\n,D2\n,D3\n,D4\n]
+\pspolygon(D0\n)(D1\n)(D2\n)(D3\n)(D4\n)
+}
+
+\pstInterLL{O0}{B32}{O1}{D30}{X0}
+
+\multido{\i=72+72}{3}{
+\multido{\n=0+1}{9}{
+\pstRotation[RotAngle=\i]{X0}{B0\n,B1\n,B2\n,B3\n,B4\n}[E0\i\n,E1\i\n,E2\i\n,E3\i\n,E4\i\n]
+\pspolygon(E0\i\n)(E1\i\n)(E2\i\n)(E3\i\n)(E4\i\n)
+}
+\pstRotation[RotAngle=\i]{X0}{A0,A1,A2,A3,A4}[E0\i,E1\i,E2\i,E3\i,E4\i]
+\pspolygon(E0\i)(E1\i)(E2\i)(E3\i)(E4\i)
+}
+
+\pstMiddleAB[PointName=none,PointSymbol=none]{D04}{D05}{M1}
+\pstMiddleAB[PointName=none,PointSymbol=none]{D35}{D25}{M2}
+\pstInterLL[PointName=none]{D35}{M1}{M2}{D05}{X2}
+
+\pstRotation[RotAngle=108]{D04}{D05}[N1]
+\pstRotation[RotAngle=-108]{D05}{D04}[N2]
+\pspolygon(D04)(D05)(N2)(O1)(N1)
+\pstRotation[RotAngle=108,PointName=none]{O1}{D04,D05,N2,N1}[D041,D051,N21,N11]
+\pspolygon(D041)(D051)(N21)(O1)(N11)
+\pstRotation[RotAngle=-108,PointName=none]{O1}{D04,D05,N2,N1}[D042,D052,N22,N12]
+\pspolygon(D042)(D052)(N22)(O1)(N12)
+
+\multido{\i=-72+-72}{3}{
+\pstRotation[RotAngle=\i]{X0}{O1}[O\i]
+}
+
+\pstRotation[RotAngle=108]{E02166}{E02167}[P1]
+\pstRotation[RotAngle=-108]{E02167}{E02166}[P2]
+\pspolygon(E02166)(E02167)(P2)(O-72)(P1)
+\pstRotation[RotAngle=108,PointName=none]{O-72}{E02166,E02167,P2,P1}[E021661,E021671,P21,P11]
+\pspolygon(E021661)(E021671)(P21)(O-72)(P11)
+\pstRotation[RotAngle=216,PointName=none]{O-72}{E02166,E02167,P2,P1}[E021662,E021672,P22,P12]
+\pspolygon(E021662)(E021672)(P22)(O-72)(P12)
+
+\pstRotation[RotAngle=108]{E01440}{E01441}[Q1]
+\pstRotation[RotAngle=-108]{E01441}{E01440}[Q2]
+\pspolygon(E01440)(E01441)(Q2)(O-144)(Q1)
+\pstRotation[RotAngle=108,PointName=none]{O-144}{E01440,E01441,Q2,Q1}[E014401,E014411,Q21,Q11]
+\pspolygon(E014401)(E014411)(Q21)(O-144)(Q11)
+\pstRotation[RotAngle=216,PointName=none]{O-144}{E01440,E01441,Q2,Q1}[E014402,E014412,Q22,Q12]
+\pspolygon(E014402)(E014412)(Q22)(O-144)(Q12)
+
+
+\pstRotation[RotAngle=108]{E0726}{E0727}[R1]
+\pstRotation[RotAngle=-108]{E0727}{E0726}[R2]
+\pspolygon(E0726)(E0727)(R2)(O-216)(R1)
+\pstRotation[RotAngle=108,PointName=none]{O-216}{E0726,E0727,R2,R1}[E07261,E07271,R21,R11]
+\pspolygon(E07261)(E07271)(R21)(O-216)(R11)
+\pstRotation[RotAngle=216,PointName=none]{O-216}{E0726,E0727,R2,R1}[E07262,E07272,R22,R12]
+\pspolygon(E07262)(E07272)(R22)(O-216)(R12)
+
+
+
+\multido{\i=72+72}{4}{
+\pstRotation[RotAngle=\i]{X2}{D00,D01,D02,D03,D04,D05,D06,D07,D08,B33}[D00\i,D01\i,D02\i,D03\i,D04\i,D05\i,D06\i,D07\i,D08\i,B33\i]
+\pstRotation[RotAngle=\i]{X2}{D041,D042,D051,D052,O1,N1,N11,N12,N2,N21,N22}[D041\i,D042\i,D051\i,D052\i,O1\i,N1\i,N11\i,N12\i,N2\i,N21\i,N22\i]
+\pspolygon(D04\i)(D05\i)(N2\i)(O1\i)(N1\i)
+\pspolygon(D041\i)(D051\i)(N21\i)(O1\i)(N11\i)
+\pspolygon(D042\i)(D052\i)(N22\i)(O1\i)(N12\i)
+\pspolygon(D00\i)(D01\i)(D02\i)(D03\i)(D04\i)(D05\i)(D06\i)(D07\i)(D08\i)(B33\i)
+}
+
+\end{pspicture}
+}
+
+
+\rput{144}(9.64,-2.94){
+\begin{pspicture}(-5,2)(6,10)%pavage de penrose
+\psset{unit=0.5,linewidth=0.5pt,PointSymbol=none,PointName=none}
+\SpecialCoor
+\pstGeonode(1;0){A0}(1;72){A1}(1;144){A2}(1;216){A3}(1;288){A4}
+\pstInterLL{A2}{A1}{A4}{A0}{O0}
+\pspolygon(A0)(A1)(A2)(A3)(A4)
+\newcounter{oom}
+\setcounter{oom}{36}
+\multido{\n=0+1}{9}{
+\pstRotation[RotAngle=\theoom]{O0}{A0,A1,A2,A3,A4}[B0\n,B1\n,B2\n,B3\n,B4\n]
+\pspolygon(B0\n)(B1\n)(B2\n)(B3\n)(B4\n)
+\addtocounter{oom}{36}
+}
+
+\pstRotation[RotAngle=108]{B00}{B01}[C0]
+\pstRotation[RotAngle=-108]{B01}{B00}[C1]
+\pspolygon(B01)(B00)(C0)(O0)(C1)
+\pstRotation[RotAngle=108,PointName=none]{O0}{B01,B00,C0,C1}[A01,A11,C01,C11]
+\pspolygon(A01)(A11)(C01)(O0)(C11)
+\pstRotation[RotAngle=108,PointName=none]{O0}{A01,A11,C01,C11}[A02,A12,C02,C12]
+\pspolygon(A02)(A12)(C02)(O0)(C12)
+
+\pstTranslation{A1}{B43}{A0,A1,A2,A3,A4,O0}[D0,D1,D2,D3,D4,O1]
+\multido{\n=0+1}{9}{
+\pstTranslation{A1}{B43}{B0\n,B1\n,B2\n,B3\n,B4\n}[D0\n,D1\n,D2\n,D3\n,D4\n]
+\pspolygon(D0\n)(D1\n)(D2\n)(D3\n)(D4\n)
+}
+
+\pstInterLL{O0}{B32}{O1}{D30}{X0}
+
+\multido{\i=72+72}{3}{
+\multido{\n=0+1}{9}{
+\pstRotation[RotAngle=\i]{X0}{B0\n,B1\n,B2\n,B3\n,B4\n}[E0\i\n,E1\i\n,E2\i\n,E3\i\n,E4\i\n]
+\pspolygon(E0\i\n)(E1\i\n)(E2\i\n)(E3\i\n)(E4\i\n)
+}
+\pstRotation[RotAngle=\i]{X0}{A0,A1,A2,A3,A4}[E0\i,E1\i,E2\i,E3\i,E4\i]
+\pspolygon(E0\i)(E1\i)(E2\i)(E3\i)(E4\i)
+}
+
+\pstMiddleAB[PointName=none,PointSymbol=none]{D04}{D05}{M1}
+\pstMiddleAB[PointName=none,PointSymbol=none]{D35}{D25}{M2}
+\pstInterLL[PointName=none]{D35}{M1}{M2}{D05}{X2}
+
+\pstRotation[RotAngle=108]{D04}{D05}[N1]
+\pstRotation[RotAngle=-108]{D05}{D04}[N2]
+\pspolygon(D04)(D05)(N2)(O1)(N1)
+\pstRotation[RotAngle=108,PointName=none]{O1}{D04,D05,N2,N1}[D041,D051,N21,N11]
+\pspolygon(D041)(D051)(N21)(O1)(N11)
+\pstRotation[RotAngle=-108,PointName=none]{O1}{D04,D05,N2,N1}[D042,D052,N22,N12]
+\pspolygon(D042)(D052)(N22)(O1)(N12)
+
+\multido{\i=-72+-72}{3}{
+\pstRotation[RotAngle=\i]{X0}{O1}[O\i]
+}
+
+\pstRotation[RotAngle=108]{E02166}{E02167}[P1]
+\pstRotation[RotAngle=-108]{E02167}{E02166}[P2]
+\pspolygon(E02166)(E02167)(P2)(O-72)(P1)
+\pstRotation[RotAngle=108,PointName=none]{O-72}{E02166,E02167,P2,P1}[E021661,E021671,P21,P11]
+\pspolygon(E021661)(E021671)(P21)(O-72)(P11)
+\pstRotation[RotAngle=216,PointName=none]{O-72}{E02166,E02167,P2,P1}[E021662,E021672,P22,P12]
+\pspolygon(E021662)(E021672)(P22)(O-72)(P12)
+
+\pstRotation[RotAngle=108]{E01440}{E01441}[Q1]
+\pstRotation[RotAngle=-108]{E01441}{E01440}[Q2]
+\pspolygon(E01440)(E01441)(Q2)(O-144)(Q1)
+\pstRotation[RotAngle=108,PointName=none]{O-144}{E01440,E01441,Q2,Q1}[E014401,E014411,Q21,Q11]
+\pspolygon(E014401)(E014411)(Q21)(O-144)(Q11)
+\pstRotation[RotAngle=216,PointName=none]{O-144}{E01440,E01441,Q2,Q1}[E014402,E014412,Q22,Q12]
+\pspolygon(E014402)(E014412)(Q22)(O-144)(Q12)
+
+
+\pstRotation[RotAngle=108]{E0726}{E0727}[R1]
+\pstRotation[RotAngle=-108]{E0727}{E0726}[R2]
+\pspolygon(E0726)(E0727)(R2)(O-216)(R1)
+\pstRotation[RotAngle=108,PointName=none]{O-216}{E0726,E0727,R2,R1}[E07261,E07271,R21,R11]
+\pspolygon(E07261)(E07271)(R21)(O-216)(R11)
+\pstRotation[RotAngle=216,PointName=none]{O-216}{E0726,E0727,R2,R1}[E07262,E07272,R22,R12]
+\pspolygon(E07262)(E07272)(R22)(O-216)(R12)
+
+
+
+\multido{\i=72+72}{4}{
+\pstRotation[RotAngle=\i]{X2}{D00,D01,D02,D03,D04,D05,D06,D07,D08,B33}[D00\i,D01\i,D02\i,D03\i,D04\i,D05\i,D06\i,D07\i,D08\i,B33\i]
+\pstRotation[RotAngle=\i]{X2}{D041,D042,D051,D052,O1,N1,N11,N12,N2,N21,N22}[D041\i,D042\i,D051\i,D052\i,O1\i,N1\i,N11\i,N12\i,N2\i,N21\i,N22\i]
+\pspolygon(D04\i)(D05\i)(N2\i)(O1\i)(N1\i)
+\pspolygon(D041\i)(D051\i)(N21\i)(O1\i)(N11\i)
+\pspolygon(D042\i)(D052\i)(N22\i)(O1\i)(N12\i)
+\pspolygon(D00\i)(D01\i)(D02\i)(D03\i)(D04\i)(D05\i)(D06\i)(D07\i)(D08\i)(B33\i)
+}
+
+\end{pspicture}
+}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%Fin PAVAGE
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%  MATHS
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\vect}[1]{\mathchoice%
+{\overrightarrow{\displaystyle\mathstrut#1\,\,}}%
+{\overrightarrow{\textstyle\mathstrut#1\,\,}}%
+{\overrightarrow{\scriptstyle\mathstrut#1\,\,}}%
+{\overrightarrow{\scriptscriptstyle\mathstrut#1\,\,}}}
+\def\Oij{$\left(\text{O},~\vect{\imath},~\vect{\jmath}\right)$}
+\def\Oijk{$\left(\text{O},~\vect{\imath},~ \vect{\jmath},~ \vect{k}\right)$}
+\def\Ouv{$\left(\text{O},~\vect{u},~\vect{v}\right)$}
+
+
+\DeclareMathSymbol{A}{\mathalpha}{operators}{65}
+\DeclareMathSymbol{B}{\mathalpha}{operators}{66}
+\DeclareMathSymbol{C}{\mathalpha}{operators}{67}
+\DeclareMathSymbol{D}{\mathalpha}{operators}{68}
+\DeclareMathSymbol{E}{\mathalpha}{operators}{69}
+\DeclareMathSymbol{F}{\mathalpha}{operators}{70}
+\DeclareMathSymbol{G}{\mathalpha}{operators}{71}
+\DeclareMathSymbol{H}{\mathalpha}{operators}{72}
+\DeclareMathSymbol{I}{\mathalpha}{operators}{73}
+\DeclareMathSymbol{J}{\mathalpha}{operators}{74}
+\DeclareMathSymbol{K}{\mathalpha}{operators}{75}
+\DeclareMathSymbol{L}{\mathalpha}{operators}{76}
+\DeclareMathSymbol{M}{\mathalpha}{operators}{77}
+\DeclareMathSymbol{N}{\mathalpha}{operators}{78}
+\DeclareMathSymbol{O}{\mathalpha}{operators}{79}
+\DeclareMathSymbol{P}{\mathalpha}{operators}{80}
+\DeclareMathSymbol{Q}{\mathalpha}{operators}{81}
+\DeclareMathSymbol{R}{\mathalpha}{operators}{82}
+\DeclareMathSymbol{S}{\mathalpha}{operators}{83}
+\DeclareMathSymbol{T}{\mathalpha}{operators}{84}
+\DeclareMathSymbol{U}{\mathalpha}{operators}{85}
+\DeclareMathSymbol{V}{\mathalpha}{operators}{86}
+\DeclareMathSymbol{W}{\mathalpha}{operators}{87}
+\DeclareMathSymbol{X}{\mathalpha}{operators}{88}
+\DeclareMathSymbol{Y}{\mathalpha}{operators}{89}
+\DeclareMathSymbol{Z}{\mathalpha}{operators}{90}
+
+
+%==========================papier pointe
+\newcommand{\pappointequad}[3]{%#1 nB points largeur, #2 nB points hauteur,#3 distance points
+\psset{PointName=none,linecolor=gray}
+\pstGeonode(0,0){A11}
+\pstGeonode[PointSymbol=none](0,0){A}(#3,0){B}(0,#3){C}
+\newcounter{jup}
+\setcounter{jup}{2}
+\newcounter{pou}
+\setcounter{pou}{2}
+\newcounter{largeur}
+\setcounter{largeur}{#1}
+\addtocounter{largeur}{-1}
+\newcounter{hauteur}
+\setcounter{hauteur}{#2}
+\addtocounter{hauteur}{-1}
+\multido{\i=1+1}{\thelargeur}{
+\pstTranslation{A}{B}{A1\i}[A1\thejup]
+\addtocounter{jup}{1}
+}
+\multido{\n=1+1}{\thehauteur}{
+\multido{\i=1+1}{#1}{
+\pstTranslation{A}{C}{A\n\i}[A\thepou\i]
+}
+\addtocounter{pou}{1}
+}
+}
+
+\newcommand{\pappointetri}[3]{%#1 nB points largeur, #2 nB points hauteur,#3 distance points
+\psset{PointName=none,linecolor=gray}
+\pstGeonode(0,0){A11}
+\pstGeonode[PointSymbol=none](0,0){A}(#3,0){B}
+\newcounter{ajup}
+\setcounter{ajup}{2}
+\newcounter{apou}
+\setcounter{apou}{2}
+\newcounter{akei}
+\setcounter{akei}{3}
+\newcounter{alargeur}
+\setcounter{alargeur}{#1}
+\addtocounter{alargeur}{-1}
+\newcounter{ahauteur}
+\setcounter{ahauteur}{#2}
+\addtocounter{ahauteur}{-1}
+\multido{\i=1+1}{\thealargeur}{
+\pstTranslation{A}{B}{A1\i}[A1\theajup]
+\addtocounter{ajup}{1}
+}
+\setcounter{ajup}{2}
+
+\multido{\n=1+2}{\theahauteur}{
+\setcounter{ajup}{2}
+\multido{\i=1+1}{#1}{
+\pstRotation[RotAngle=60]{A\n\i}{A\n\theajup}[A\theapou\i]
+\addtocounter{ajup}{1}
+}
+\pstRotation[RotAngle=-120]{A\theapou1}{A\n1}[A\theakei1]
+\setcounter{ajup}{2}
+\multido{\i=1+1}{\thealargeur}{
+\pstTranslation{A}{B}{A\theakei\i}[A\theakei\theajup]
+\addtocounter{ajup}{1}
+}
+\addtocounter{apou}{2}
+\addtocounter{akei}{2}
+}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%commande fractions
+
+
+%
+
+\newcounter{secteurf}
+\newcounter{secteurd}
+\newcounter{Bsecteurf}
+\newcounter{Bsecteurd}
+\newcounter{nB}
+\newcounter{nBv}
+\newlength{\shift}
+\newcommand{\gemzahlcirc}[6][c]{
+%option : c couleur pardefaut t transparent pour mettre une image en dessous
+%entier
+%numerateur
+%denominateur
+%echelle
+%couleur
+  \begin{tikzpicture}[scale=#5]
+\pgfmathsetcounter{secteurf}{360/#4}
+
+\pgfmathsetcounter{secteurd}{0}
+
+\pgfmathsetcounter{Bsecteurf}{360/#4}
+
+\pgfmathsetcounter{Bsecteurd}{0}
+
+\pgfmathsetcounter{nB}{#2+1}
+
+\setlength{\shift}{0cm}
+\multido{\i=0+1}{\thenB}{
+\begin{scope}[xshift=\shift]
+\multido{\n=0+1}{#4}{
+\ifx c#1 
+\filldraw[fill=#6!50!white,draw=black,thick] (0,0) -- (\thesecteurd:1) arc (\thesecteurd:\thesecteurf:1) -- cycle;
+\else
+\ifx t#1
+\filldraw[fill=none,draw=black,thick] (0,0) -- (\thesecteurd:1) arc (\thesecteurd:\thesecteurf:1) -- cycle;
+\fi\fi
+\pgfmathaddtocounter{secteurf}{360/#4}
+\pgfmathaddtocounter{secteurd}{360/#4}
+}
+\end{scope}
+\pgfmathaddtolength{\shift}{2.1cm}
+}
+
+\pgfmathsetcounter{nBv}{#4-#3}
+\pgfmathaddtolength{\shift}{2.1cm*#2}
+\begin{scope}[xshift=\shift]\
+\multido{\n=0+1}{\thenBv}{
+\ifx c#1 
+\filldraw[fill=white,draw=black,thick] (0,0) -- (\theBsecteurd:1) arc (\theBsecteurd:\theBsecteurf:1) -- cycle;
+\else
+\ifx t#1
+\filldraw[fill=none,draw=black,thick] (0,0) -- (\theBsecteurd:1) arc (\theBsecteurd:\theBsecteurf:1) -- cycle;
+\fi\fi
+\pgfmathaddtocounter{Bsecteurf}{360/#4}
+\pgfmathaddtocounter{Bsecteurd}{360/#4}
+}
+
+
+\end{scope}
+
+  \end{tikzpicture}
+}
+
+
+%%_______________________________________________________________________________
+%
+
+%
+%                           par JCC sur f.c.t.tex
+%_______________________________________________________________________________
+\def\nombrefr#1{\expandafter{\changecomma{#1}}}
+\def\changecomma#1{\expandafter\changecommaaux#1.\changecommaaux}
+\def\changecommaaux#1.#2\changecommaaux{#1\ifx\empty#2\else,\expandafter\changecommapt#2\changecommapt\fi}
+\def\changecommapt#1.\changecommapt{#1}
+
+\makeatletter
+\newcount\integerpart
+\newcount\decimalpart
+\newcommand\IFnombre[3]{%
+	\decimalpart=0
+	\afterassignment\defnext\integerpart=0#1\relax\@nil
+	\expandafter\@dotorcomma\next\@nil
+	\if\relax\@remain
+		#2%
+	\else
+		#3
+	\fi
+	}
+\def\defnext#1\@nil{\def\next{#1}}%
+\def\@dotorcomma{\@ifnextchar.{\@decimal}{\@comma}}
+\def\@comma{\@ifnextchar,{\@decimal}{\@\endnumber}}
+\def\@decimal#1#2\@nil{%
+	\afterassignment\defnext\decimalpart=0#2\@nil
+	\expandafter\@\endnumber\next\@nil
+}
+\def\@\endnumber#1\@nil{\def\@remain{#1}}
+\makeatother
+\newcommand*{\setenumeratedefaut}{
+\setenumerate{itemsep=2ptplus2ptminus2pt,topsep=\the\itemsep,partopsep=0cm,parsep=0pt}}
+\setenumeratedefaut
+\let\oldenumerate=\enumerate
+\let\oldendenumerate=\endenumerate
+
+\makeatletter
+\newcommand*{\gras}[1]{%
+	\ifmmode% si c'est le mode maths
+		\begingroup
+			\renewcommand*\npunitcommand[1]{\ensuremath{\mathbf{##1}}}% pour \numprint --> met en gras les unit?finit la commande \text du package amstext
+			\mathbf{#1}%
+		\endgroup
+	\else%
+		\begingroup
+			\mathversion{Bold}% pour mettre les formules en gras s'il y en a
+			\textbf{#1}% mode texte
+		\endgroup
+	\fi}
+\makeatother
+%
+%____________________
+%
+%    Forme un arc
+%____________________
+\newcommand*{\Angle}[1]{\ensuremath{\widehat{#1}}}
+%
+% Forme un arc commande t Bas
+\makeatletter
+\newcount\r@pport \newdimen\r@ppord
+\newcount\kslant \newdimen\kslantd
+\newcommand*{\arc}[1]{\setbox0\hbox{$\m@th\displaystyle#1$}\kslant=\ht0
+	\divide\kslant by1000\multiply\kslant by\fontdimen1\textfont1
+	\divide\kslant by10000\kslantd=\kslant\fontdimen6\textfont1
+	\divide\kslantd by7750\kern\kslantd
+	\r@ppord=\wd0\multiply\r@ppord by100\divide\r@ppord by\ht0
+	\multiply\r@ppord by300\advance\r@ppord by\ht0
+	\pspicture(0,0)
+	\parabola[linewidth=.3pt]{-}(0,1.05\ht0)(.5\wd0,1.15\r@ppord)
+	\endpspicture
+	\kern-\kslantd\box0}
+\makeatother
+%
+% Forme un arc commande paisseur de la ligne
+\newcommand*{\Arc}[2][0.3pt]{%
+	\newlength{\longarc}
+	\settowidth{\longarc}{$#2$}%
+		\unitlength\longarc%
+		\ensuremath{%
+			\stackrel{\begin{picture}(1,0.2)\linethickness{#1}\qbezier(0,0)(0.5,0.2)(1,0)\end{picture}}%
+			{#2}%
+		}%
+}
+% Met entre guillemets fran
+
+\def\guill#1{\og{}#1\fg{}}
+% _______________________________________________________________________
+%|                                                                       |
+%|   Met un signe = si \Delta est suffisemment petit, met \approx sinon  |
+%|_______________________________________________________________________|
+\newcommand*{\SigneEgal}[1]{\FPabs{\Delta}{#1}\FPiflt{\Delta}{0.000000001}=\else\approx\fi}
+\newcommand*{\RectangleEn}[4]{%
+	\ifthenelse{#1=1}
+		{#2}% #1=2, renvoie #2
+		{\ifthenelse{#1=2}
+			{#3}% #1=3, renvoie #3
+			{\ifthenelse{#1=3}
+				{#4}% #1=4, renvoie #4
+				{??}% #1 est autre chose, renvoie ??
+			}}}
+\makeatletter\newcommand*{\PythagoreDirect}{\@ifstar{\def\AvecEq{0}\PythagoreDirecT}{\def\AvecEq{1}\PythagoreDirecT}}\makeatother
+\newcommand*{\PythagoreDirecT}[4][2]{%
+% [#1] optionnel : position de la lettre o? -dire la lettre du milieu)
+	Le triangle #2#3#4 est rectangle en \RectangleEn{#1}{#2}{#3}{#4}, donc d'apr\`e le th\'eor\^eme de Pythagore%
+	\ifthenelse{\AvecEq=1}%
+		{\ifthenelse{#1=1}%
+			{ : ${#3#4}^2={#2#3}^2+{#2#4}^2$}%
+				{\ifthenelse{#1=2}%
+					{ : ${#2#4}^2={#3#2}^2+{#3#4}^2$}%
+					{\ifthenelse{#1=3}%
+						{ : ${#2#3}^2={#4#2}^2+{#4#3}^2$}%
+						{ : ??}%
+					}%
+				}%
+		}%
+		{}}
+\makeatletter\newcommand*{\ThalesDirectTrois}{\@ifstar{\def\MaFrac{\dfrac}\ThalesDirectTroiS}{\def\MaFrac{\frac}\ThalesDirectTroiS}}\makeatother
+\newcommand*{\ThalesDirectTroiS}[5]{%
+	%#1:centre homot direct
+	Les droites (#2#3) et (#4#5) se coupent en #1, les droites (#2#4) et (#3#5) sont : $\MaFrac{#1#2}{#1#3}=\MaFrac{#1#4}{#1#5}=\MaFrac{#2#4}{#3#5}$%
+}
+\newcommand*{\ThalesReciproquE}[5]{%
+	%les rapports #1#2/#1#3 et #1#4/#1#5 sont ?s
+	On obtient l$\MaFrac{#1#2}{#1#3}=\MaFrac{#1#4}{#1#5}$~, les points #1, #2, #3 et #1, #4, #5 sont align?â\"aBciproque du ths, \textbf{les droites (#2#4) et (#3#5) sont parall?les}.
+}
+\makeatletter\newcommand*{\ThalesReciproque}{\@ifstar{\def\MaFrac{\dfrac}\ThalesReciproquE}{\def\MaFrac{\frac}\ThalesReciproquE}}
+\makeatother
+
+%% COMMANDE POUR FAIRE UN QUADRILLAGE "QUELCONQUE"
+
+%% Le quadrillage sera engendr?â\"aB quadrillage par un argument optionnel.
+%% Par exemple \quadrillageTEST[linecolor=green](0,0)(1,0)(1,1)(-5,-7)(3,4).
+
+
+
+% Pour comprendre facilement la macro, on se place dans le
+% du quadrillage sont soit "horizontaux" soit "verticaux".
+
+\makeatletter
+% Des compteurs utiles pour la commande \quadrillageTEST.
+\newcounter{compteur@xquadrillage}
+\newcounter{compteur@yquadrillage}
+
+\def\quadrillageTEST{%
+   \@ifnextchar[{\def@quad@option}{\def@quad@sansOption}}
+
+\def\def@quad@option[#1](#2)(#3)(#4)(#5,#6)(#7,#8){
+   %  #1 = les attriButs en option
+   %  #2 = O'
+   %  #3 = I'
+   %  #4 = J'
+   % (#5,#6) = (Xmin,Ymin) "coin infrieur gauche"
+   % (#7,#8) = (Xmax,Ymax) "coin suprieur droit"
+   %
+   % le repre qui gre le quadrillage est (O',I',J')
+   % Chaque point devient un noeud.
+   \pnode(#2){O'}%
+   \pnode(#3){I'}%
+   \pnode(#4){J'}%
+   %
+   % On calcule le nombre de traits "verticaux"   tracer
+   % Il y en a Xmax - Xmin + 1 = #7 - #5 + 1
+   \setcounter{compteur@xquadrillage}{#7}%
+   \addtocounter{compteur@xquadrillage}{1}%
+   \addtocounter{compteur@xquadrillage}{-#5}%
+   % On calcule le nombre de traits "horizontaux"  tracer
+   % Il y en a Ymax - Ymin + 1 = #8 - #6 + 1
+   \setcounter{compteur@yquadrillage}{#8}%
+   \addtocounter{compteur@yquadrillage}{1}%
+   \addtocounter{compteur@yquadrillage}{-#6}%
+   %
+   % On dessine enfin le quadrillage %
+   %
+   % On dessine les traits "verticaux" forms par les deux points
+   % de coordonnes (\i,Ymin) et (\i,Ymax) avec \i partant de Xmin
+   % et sachant que le nombre de traits "verticaux"
+   % est \value{compteur@xquadrillage}
+   \multido{\i=#5+1}{\value{compteur@xquadrillage}}{%
+      \pstOIJGeonode[PointSymbol=none,PointName=none](\i,#6){A}{O'}{I'}{J'}%
+      \pstOIJGeonode[PointSymbol=none,PointName=none](\i,#8){B}{O'}{I'}{J'}%
+      \pstLineAB[#1]{A}{B}}%
+   %
+   % On dessine les traits "horizontaux" form?s par les deux points
+   % de coordonn?es (Xmin,\i) et (Xmax,\i) avec \i partant de Ymin
+   % et sachant que le nombre de traits "horizontaux"
+   % est \value{compteur@yquadrillage}   
+   \multido{\i=#6+1}{\value{compteur@yquadrillage}}{%
+      \pstOIJGeonode[PointSymbol=none,PointName=none](#5,\i){A}{O'}{I'}{J'}
+      \pstOIJGeonode[PointSymbol=none,PointName=none](#7,\i){B}{O'}{I'}{J'}
+      \pstLineAB[#1]{A}{B}}%   
+   }% fin de \def@quad@option
+
+% Pour la dfinition sans option, on prend \def@quad@option
+% avec un paramtre optionnel vide.
+\def\def@quad@sansOption(#1)(#2)(#3)(#4,#5)(#6,#7){%
+   \def@quad@option[](#1)(#2)(#3)(#4,#5)(#6,#7)}
+
+\makeatother
+\newcommand{\perpbf}{\mathop{~\rule{1.5pt}{6pt}\rput(-0.025,0){\rule{6pt}{1.5pt}}}\nolimits~}
+\newcommand{\parabf}{\mathop{~~\rput{60}(0,0.08){\rule{8pt}{1.5pt}}\rput{60}(0.15,0.08){\rule{8pt}{1.5pt}}}\nolimits~~}
+
+\newcommand{\para}{\mathop{~~\rput{60}(0,0.08){\rule{8pt}{.5pt}}\rput{60}(0.1,0.08){\rule{8pt}{.5pt}}}\nolimits~~}
+
+
+%########################################################################################
+%########################### MACROS POUR LES DROITES GRADUES ###########################
+%###########################         v 0.2 du 7/1/2008        ###########################
+%########################################################################################
+%
+% Auteur : Christian TELLECHEA
+% Site   : www.Bricamath.net
+%
+\newcommand*{\Position}[1]{\ifdim #1cm=0cm c \fi \ifdim #1cm>0cm B \fi \ifdim #1cm<0cm t \fi}
+% _________________________________________________
+%|                                                 |
+%|      Marque un point sur la droite gradue      |
+%|_________________________________________________|
+% #1 optionnel : paisseur du point, par dfaut 5pt
+\newcommand*{\MarquePoint}[2][5]{\psdots[dotstyle=x,dotsize=#1pt 0](! #2 0)}
+% __________________________________________________________
+%|                                                          |
+%|      Marque un trait vertical sur la droite gradue      |
+%|__________________________________________________________|
+% #1 optionnel : hauteur du trait de part et d'autre de la droite. Par defaut 0.25cm
+\newcommand*{\MarqueTrait}[2][0.25]{\psline[linewidth=1pt](! #2 -#1)(! #2 #1)}
+% _________________________________________________________________
+%|                                                                 |
+%|      Affiche un texte une abscisse et une hauteur donne      |
+%|_________________________________________________________________|
+%#1 : abscisse
+%#2 : decalage vertical (espace en cm entre le haut ou la Bas de la lettre et la droite gradue)
+%#3 : texte
+\newcommand*{\AfficheTexte}[3]{\rput[\Position{#2}](! #1 #2){#3}}
+% ________________________________________________________
+%|                                                        |
+%|             Affiche une fleche verticale               |
+%|      au dessus ou au dessous de la droite gradue      |
+%|                  avec ou sans texte                    |
+%|________________________________________________________|
+\makeatletter
+\newcommand{\AfficheFleche}[3][0.15]{\@ifnextchar[{\AfficheFleche@i[#1]{#2}{#3}}{\AfficheFleche@i[#1]{#2}{#3}[]}}
+\def\AfficheFleche@i[#1]#2#3[#4]{%
+% #1  :   dcalage vertical entre Bout de la flche et la droite. Par dfaut=0.15
+% #2  :   abscisse de la flche
+% #3  :   hauteur de la flche en cm (positif:flche au dessus, ngatif:flche au dessous)
+% #4  :   Optionnel : texte afficher
+\pstVerB{/Signe #3 dup 0 eq {pop 0}{dup 0 lt {pop 1 neg}{pop 1} ifelse} ifelse def}% renvoie -1 0 ou 1 selon le signe de #3
+\psline[arrowsize=2pt 3]{->}(! #2 #3 abs #1 abs add Signe mul)(!#2 #1 abs Signe mul)%
+\rput[\Position{#3}](! #2 #3 abs #1 abs add 0.1 add Signe mul){#4}%
+}
+% ___________________________________________
+%|                                           |
+%|        ENVIRONNEMENT DroiteGradue        |
+%|          Trace une droite gradue___________________________________________|
+\newenvironment{DroiteGraduee}[8][all]{%
+% Les arguments de l'environnement
+% #1 : Optionnel = affichage des nombres. Par dfaut all (none est le contraire)
+% #2 : largeur totale de la droite en cm
+% #3 : abscisse de la 1re graduation
+% #4 : abscisse de la dernire graduation
+% #5 : nombre d'intervalles sudivisant la graduation principale
+% #6 : Incrment entre 2 graduations principales
+% #7 : nombre de graduations principales re
+% #8 : nombre de graduations principales re
+	\newdimen\x@gauche \newdimen\x@droite \newdimen\x@@unite
+	\newdimen\c@rrection \newdimen\n@m \newdimen\d@n
+	\x@@unite=1cm%       pour les conversions
+	\c@rrection=0.6cm%   largeur de la flche
+	\x@gauche=-#7cm \advance\x@gauche #3cm \x@droite=#4cm \advance\x@droite #8cm
+	\pst@divide\x@gauche\x@@unite\x@@gauche%      conversion pt-->cm
+	\n@m=-\c@rrection \advance\n@m #2cm%          n@m=largeur-epaisseur_fleche
+	\d@n=-\x@gauche \advance\d@n\x@droite%        d@n=xdroite-xgauche
+	\pst@divide\n@m\d@n\x@unite%                  x@unit=(largeur-largeur_fleche)/(xdroite-xgauche)
+	\pst@divide\c@rrection{\x@unite cm}{\Fl@che}
+	\newdimen\EpFl@che \EpFl@che=\Fl@che cm
+	\advance\x@droite\EpFl@che \pst@divide\x@droite\x@@unite\x@@droite% on corrige de la largeur de la flche, et on convertit
+	\psset{xunit=\x@unite cm,yunit=1cm,arrowsize=4pt 3}%
+	\begin{pspicture}(\x@@gauche,-1)(\x@@droite,1)%
+		\psaxes[comma,labelsep=5pt,labels=#1,Ox=#3,Dx=#6,yAxis=false,subticks=#5,ticksize=-0.15cm 0.15cm,tickwidth=1.5pt,subticksize=0.7,subtickwidth=0.8pt,subtickcolor=black]{->}(#3,0)(\x@@gauche,-1)(\x@@droite,1)
+	}
+	{\end{pspicture}}
+
+\newenvironment{Thermometre}[8][all]{%
+% Les arguments de l'environnement
+% #1 : Optionnel = affichage des nombres. Par dfaut all (none est le contraire)
+% #2 : largeur totale de la droite en cm
+% #3 : abscisse de la 1re graduation
+% #4 : abscisse de la dernire graduation
+% #5 : nombre d'intervalles sudivisant la graduation principale
+% #6 : Incrment entre 2 graduations principales
+% #7 : nombre de graduations principales re
+% #8 : nombre de graduations principales re
+	\newdimen\x@gauche \newdimen\x@droite \newdimen\x@@unite
+	\newdimen\c@rrection \newdimen\n@m \newdimen\d@n
+	\x@@unite=1cm%       pour les conversions
+	\c@rrection=0.6cm%   largeur de la flche
+	\x@gauche=-#7cm \advance\x@gauche #3cm \x@droite=#4cm \advance\x@droite #8cm
+	\pst@divide\x@gauche\x@@unite\x@@gauche%      conversion pt-->cm
+	\n@m=-\c@rrection \advance\n@m #2cm%          n@m=largeur-epaisseur_fleche
+	\d@n=-\x@gauche \advance\d@n\x@droite%        d@n=xdroite-xgauche
+	\pst@divide\n@m\d@n\x@unite%                  x@unit=(largeur-largeur_fleche)/(xdroite-xgauche)
+	\pst@divide\c@rrection{\x@unite cm}{\Fl@che}
+	\newdimen\EpFl@che \EpFl@che=\Fl@che cm
+	\advance\x@droite\EpFl@che \pst@divide\x@droite\x@@unite\x@@droite% on corrige de la largeur de la flche, et on convertit
+	\psset{xunit=\x@unite cm,yunit=1cm,arrowsize=4pt 3}%
+	\begin{pspicture}(\x@@gauche,-1)(\x@@droite,1)%
+		\psaxes[comma,labelsep=5pt,labels=#1,Ox=#3,Dx=#6,yAxis=false,subticks=#5,ticksize=-0.4cm 0.4cm,tickwidth=1.5pt,subticksize=0.7,subtickwidth=0.8pt,subtickcolor=black]{-}(#3,0)(\x@@gauche,-1)(\x@@droite,1)
+	}
+	{\end{pspicture}
+}
+
+\newenvironment{DroiteGradueequad}[8][all]{%
+% Les arguments de l'environnement
+% #1 : Optionnel = affichage des nombres. Par dfaut all (none est le contraire)
+% #2 : largeur totale de la droite en cm
+% #3 : abscisse de la 1re graduation
+% #4 : abscisse de la dernire graduation
+% #5 : nombre d'intervalles sudivisant la graduation principale
+% #6 : Incrment entre 2 graduations principales
+% #7 : nombre de graduations principales re
+% #8 : nombre de graduations principales afficher aprs la derni�re
+	\newdimen\x@gauche \newdimen\x@droite \newdimen\x@@unite
+	\newdimen\c@rrection \newdimen\n@m \newdimen\d@n
+	\x@@unite=1cm%       pour les conversions
+	\c@rrection=0.6cm%   largeur de la flche
+	\x@gauche=-#7cm \advance\x@gauche #3cm \x@droite=#4cm \advance\x@droite #8cm
+	\pst@divide\x@gauche\x@@unite\x@@gauche%      conversion pt-->cm
+	\n@m=-\c@rrection \advance\n@m #2cm%          n@m=largeur-epaisseur_fleche
+	\d@n=-\x@gauche \advance\d@n\x@droite%        d@n=xdroite-xgauche
+	\pst@divide\n@m\d@n\x@unite%                  x@unit=(largeur-largeur_fleche)/(xdroite-xgauche)
+	\pst@divide\c@rrection{\x@unite cm}{\Fl@che}
+	\newdimen\EpFl@che \EpFl@che=\Fl@che cm
+	\advance\x@droite\EpFl@che \pst@divide\x@droite\x@@unite\x@@droite% on corrige de la largeur de la flche, et on convertit
+	\quadrillageTEST[linecolor=green](0,-1)(0,-1.1)(0.1,-1)(-5,-3)(17,90)
+	\psset{xunit=1cm,yunit=1cm,arrowsize=4pt 3}%
+ 
+	\begin{pspicture}(-1,1.35)(0,0)%
+	%\x@@gauche \x@@droite
+		\psaxes
+		[comma,labelsep=5pt,labels=#1,Ox=#3,Dx=#6,yAxis=false,subticks=#5,ticksize=-0.15cm 0.15cm,tickwidth=1.5pt,subticksize=0.7,subtickwidth=0.8pt,subtickcolor=black]{->}(#3,0)(\x@@gauche,-1)(\x@@droite,1)
+	}
+	{\end{pspicture}
+}
+
+
+
+\newenvironment{DroiteGradueeangle}[9][all]{%A UTILISER DANS un PSPICTURE pas comme un droitegraduee traditionnel
+% Les arguments de l'environnement
+% #1 : Optionnel = affichage des nombres. Par daut all (none est le contraire)
+% #2 : largeur totale de la droite en cm
+% #3 : abscisse de la 1re graduation
+% #4 : abscisse de la dernire graduation
+% #5 : nombre d'intervalles sudivisant la graduation principale
+% #6 : Incrment entre 2 graduations principales
+% #7 : nombre de graduations principales afficher avant la premire
+% #8 : nombre de graduations principales afficher aprs la dernire
+	\newdimen\x@gauche \newdimen\x@droite \newdimen\x@@unite
+	\newdimen\c@rrection \newdimen\n@m \newdimen\d@n
+	\x@@unite=1cm%       pour les conversions
+	\c@rrection=0.6cm%   largeur de la flche
+	\x@gauche=-#7cm \advance\x@gauche #3cm \x@droite=#4cm \advance\x@droite #8cm
+	\pst@divide\x@gauche\x@@unite\x@@gauche%      conversion pt-->cm
+	\n@m=-\c@rrection \advance\n@m #2cm%          n@m=largeur-epaisseur_fleche
+	\d@n=-\x@gauche \advance\d@n\x@droite%        d@n=xdroite-xgauche
+	\pst@divide\n@m\d@n\x@unite%                  x@unit=(largeur-largeur_fleche)/(xdroite-xgauche)
+	\pst@divide\c@rrection{\x@unite cm}{\Fl@che}
+	\newdimen\EpFl@che \EpFl@che=\Fl@che cm
+	\advance\x@droite\EpFl@che \pst@divide\x@droite\x@@unite\x@@droite% on corrige de la largeur de la flche, et on convertit
+	%\psset{xunit=1cm,yunit=1cm,arrowsize=4pt 3}%
+	%\x@@gauche \x@@droite
+		\rput{#9}(0,0){
+	
+		\psaxes
+		[comma,labelsep=5pt,labels=#1,Ox=#3,Dx=#6,yAxis=false,subticks=#5,ticksize=-0.15cm 0.15cm,tickwidth=1.5pt,subticksize=0.7,subtickwidth=0.8pt,subtickcolor=black]{->}(#3,0)(\x@@gauche,-1)(\x@@droite,1)}
+		
+	}
+	{
+}
+	
+% ___________________________________________________
+%|                                                   |
+%|      Reprsentation graphique de l'ensemBle       |
+%|    des solutions d'une inquation du 1degr
+%|___________________________________________________|
+%
+\makeatletter
+\newcommand*{\GraphiqueInequation}[3][n]{\@ifnextchar[{\GraphiqueInequation@i[#1]{#2}{#3}}{\GraphiqueInequation@i[#1]{#2}{#3}[5]}}
+\def\GraphiqueInequation@i[#1]#2#3[#4]{%
+% #1   :   optionnel = 0 par dfaut (pas de hachure pour ce qui ne convient pas) sinon #1=H ou h
+% #2   :   signe de l'in  < ou <= ou =< ou > ou >= ou =>
+% #3   :   nomafficher au dessus de la borne
+% #4   :   optionnel = largeur de la reprsentation en cm. Par dfaut 5.
+	\newdimen\xMaxi \xMaxi=#4cm \divide\xMaxi2
+	\psset{unit=1 cm,arrowsize=4pt 3}
+	\begin{pspicture*}(-\xMaxi,-0.3)(\xMaxi,1.2)%
+		\pstVerB{%out code PostScript
+			/DecalCrochet 0.07 def /DecalOrigine 0.07 def /EpFleche 0.2 def /Angle 0 def
+			/Inferieur (#2)(<)eq (#2)(<=)eq or (#2)(=<)eq or def
+			/Superieur (#2)(>)eq (#2)(>=)eq or (#2)(=>)eq or def
+			/Large (#2)(<=)eq (#2)(=<)eq or (#2)(>=)eq or (#2)(=>)eq or def
+			/Stricte (#2)(<)eq (#2)(>)eq or def
+			Superieur {/Signe 1 def} if
+			Inferieur	{/Signe 1 neg def} if
+			(#1)(H)eq (#1)(h)eq or {/yHachures 0.15 def}{/yHachures 0 def} ifelse
+			Large {
+				/TaillePoint 0.075 def /TailleTrait 0 def /xOrigine 0 def
+				/xCrochet DecalCrochet Signe neg mul def /xHachures xCrochet def
+				Inferieur {/Angle 180 def} if
+				} if
+			Stricte {
+				/TaillePoint 0 def /TailleTrait 0.15 def /xOrigine DecalOrigine def
+				/xCrochet DecalCrochet Signe mul def /xHachures 0 def
+				Superieur {/Angle 180 def} if
+				} if
+			/xExtremeHachures #4 2 div Signe neg mul def
+			/xExtreme #4 2 div Signe mul def
+			Superieur {/xExtreme xExtreme EpFleche sub def} if
+			Inferieur {/xExtremeHachures xExtremeHachures 2 EpFleche mul sub def} if
+			/xOrigine xOrigine Signe mul def
+		}%% fin code PostScript
+	\psline[linewidth=1pt]{->}(! #4 2 div neg 0)(! #4 2 div 0)%      trac de la droite
+	\psline[linewidth=2.5pt](! xExtreme 0)(! xOrigine 0)%            on repasse en gras
+	\psellipse*(! 0 0)(! TaillePoint TaillePoint)%                   marque ventuellement le point
+	\psline[linewidth=1pt](! 0 TailleTrait neg)(! 0 TailleTrait)%    trace ventuellement un trait
+	\rput[c]{! Angle}(! xCrochet 0){\LARGE\textbf{[}}%               on place le crochet
+	\rput[B](! 0 0.4){#3}%                                           affichage de la borne
+	\psframe[linestyle=none,fillstyle=hlines,hatchwidth=0.5pt,hatchsep=3pt](! xHachures yHachures neg)(! xExtremeHachures yHachures)% hachures
+	\end{pspicture*}
+}
+\makeatother
+\newcommand{\carrecercle}[7]{%#1coordx en cm#2 corrd y #3 dimension carre #4567 lettre sur les nodes dans les cercles
+\psset{PointName=none,PointSymbol=none}
+\small
+\pstGeonode[PointName=none, PointSymbol=none](0,0){X}
+\pstGeonode[PointName=none, PointSymbol=none](#3,0){Y}
+\pstGeonode[PointName=none, PointSymbol=none](#1,#2){A}
+\pstTranslation{X}{Y}{A}[B]
+\pstRotation[RotAngle=90]{A}{B}[D]
+\pstRotation[RotAngle=-90]{B}{A}[C]
+\pstMiddleAB{A}{B}{I}
+\uput{4pt}[90](I){#4}
+\pstMiddleAB{A}{I}{I'}
+\pstMiddleAB{I}{B}{I''}
+\pstMiddleAB{B}{C}{J}
+\uput{4pt}[180](J){#5}
+\pstMiddleAB{B}{J}{J'}
+\pstMiddleAB{J}{C}{J''}
+\pstMiddleAB{C}{D}{K}
+\uput{4pt}[270](K){#6}
+\pstMiddleAB{C}{K}{K'}
+\pstMiddleAB{K}{D}{K''}
+\pstMiddleAB{D}{A}{L}
+\uput{4pt}[0](L){#7}
+\pstMiddleAB{L}{A}{L'}
+\pstMiddleAB{D}{L}{L''}
+\pstArcnOAB{I}{I'}{I''}
+\pstArcnOAB{J}{J'}{J''}
+\pstArcnOAB{K}{K'}{K''}
+\pstArcOAB{L}{L'}{L''}
+\pspolygon(A)(B)(C)(D)
+}
+
+\newcommand{\carrecerclecoul}[7]{%#1coordx en cm#2 corrd y #3 dimension carre #4567 lettre sur les nodes dans les cercles #891011 les couleurs des demis cercles
+\psset{PointName=none,PointSymbol=none}
+%\newlength{\xcoordeb}
+%\setlength{\xcoordeb}{0cm}
+%\addtolength{\xcoordeb}{#1}
+%\newlength{\ycoordeb}
+%\setlength{\ycoordeb}{0cm}
+%\addtolength{\xcoordeb}{#2}
+\small
+\pstGeonode[PointName=none, PointSymbol=none](0,0){X}
+\pstGeonode[PointName=none, PointSymbol=none](#3,0){Y}
+\pstGeonode[PointName=none, PointSymbol=none](#1,#2){A}
+\pstTranslation{X}{Y}{A}[B]
+\pstRotation[RotAngle=90]{A}{B}[D]
+\pstRotation[RotAngle=-90]{B}{A}[C]
+\pstMiddleAB{A}{B}{I}
+
+\pstMiddleAB{A}{I}{I'}
+\pstMiddleAB{I}{B}{I''}
+\pstMiddleAB{B}{C}{J}
+
+\pstMiddleAB{B}{J}{J'}
+\pstMiddleAB{J}{C}{J''}
+\pstMiddleAB{C}{D}{K}
+
+\pstMiddleAB{C}{K}{K'}
+\pstMiddleAB{K}{D}{K''}
+\pstMiddleAB{D}{A}{L}
+
+\pstMiddleAB{L}{A}{L'}
+\pstMiddleAB{D}{L}{L''}
+\pstArcnOAB[fillstyle=solid,fillcolor=white]{I}{I'}{I''}
+\pstArcnOAB[fillstyle=solid,fillcolor=white]{J}{J'}{J''}
+\pstArcnOAB[fillstyle=solid,fillcolor=white]{K}{K'}{K''}
+\pstArcOAB[fillstyle=solid,fillcolor=white]{L}{L'}{L''}
+\uput{4pt}[90](I){#4}
+\uput{4pt}[180](J){#5}
+\uput{4pt}[270](K){#6}
+\uput{4pt}[0](L){#7}
+\pspolygon(A)(B)(C)(D)
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% reponse avec cadre et pointill\'e
+%autant de ldots qu'on veut
+\newcommand{\rep}[1]{
+%paremetre = nombre de \ldots ATTENTION MATHMODE NECESSAIRE
+\fcolorbox{white}{white}{
+\rule{0cm}{0.3cm}\hspace{-0.3cm}
+\multido{\n=1+1}{#1}{
+\ldots\hspace{-0.235cm}
+}
+}
+}
+%
+%#####################################################################################
+%######################## MACROS : SOLIDES \`a SURFACES COURBES ########################
+%########################         v 0.5 du 05/03/2008         ########################
+%#####################################################################################
+%
+% Auteur : Christian TELLECHEA
+% Site   : www.bricamath.net
+\makeatletter
+
+\edef\dashDefaut{3pt 3pt}%   pointill\'es par d\'efaut
+\edef\widthDefaut{0.7pt}%    \'epaisseur par d\'efaut
+
+% _________________________________________________
+%|                                                 |
+%|           Cotation et noms des points           |
+%|_________________________________________________|
+\define@key{TraitRappel}{styleTraitRappel}{\edef\@styleTraitRappel{#1}}
+\define@key{TraitRappel}{widthTraitRappel}{\edef\@widthTraitRappel{#1}}
+\define@key{TraitRappel}{dashTraitRappel}{\edef\@dashTraitRappel{#1}}
+\newcommand*{\@TraitRappel}[7][]{%
+% #1	style des Traits de Rappel
+% #2	abscisse d\'ebut       % #3 ordonn\'ee d\'ebut
+% #4	abscisse fin         % #5 ordonn\'ee fin
+% #6	d\'epassement trait
+% #7	d\'ecalage fl\`eche
+	\presetkeys{TraitRappel}{styleTraitRappel=none,widthTraitRappel=0.4pt,dashTraitRappel=1.5pt 1.5pt}{}%
+	\setkeys{TraitRappel}{#1}%
+	\@@TraitRappel{#2}{#3}{#4}{#5}{#6}{#7}%
+}
+\newcommand{\@@TraitRappel}[6]{%
+	\pstVerb{%
+		/signe {dup 0 eq {pop 0}{dup 0 lt {pop 1 neg}{pop 1} ifelse} ifelse} def%
+		/depass #5 #6 abs add #6 signe mul #3 #1 sub dup mul #4 #2 sub dup mul add sqrt div def%
+		/decalx #2 #4 sub depass mul def%
+		/decaly #3 #1 sub depass mul def}%
+	\begingroup%
+		\psset{linestyle=\@styleTraitRappel,dash=\@dashTraitRappel,linewidth=\@widthTraitRappel}%
+		\psline(! #1 #2)(! #1 decalx add #2 decaly add)%
+		\psline(! #3 #4)(! #3 decalx add #4 decaly add)%
+	\endgroup%
+}
+
+\define@key{Cotation}{styleTraitRappel}{\edef\@styleTraitRappel{#1}}
+\define@key{Cotation}{widthTraitRappel}{\edef\@widthTraitRappel{#1}}
+\define@key{Cotation}{dashTraitRappel}{\edef\@dashTraitRappel{#1}}
+\define@key{Cotation}{styleFleche}{\edef\@styleFleche{#1}}
+\define@key{Cotation}{dashFleche}{\edef\@dashFleche{#1}}
+\define@key{Cotation}{widthFleche}{\edef\@widthFleche{#1}}
+\define@key{Cotation}{decalFleche}{\edef\@decalFleche{#1}}
+\define@key{Cotation}{decalTexte}{\edef\@decalTexte{#1}}
+\define@key{Cotation}{depassTrait}{\edef\@depassTrait{#1}}
+\define@key{Cotation}{rotationTexte}{\edef\@rotationTexte{#1}}
+\newcommand*{\Cotation}{\@ifstar{\def\@@put{\lput*}\@cotation@}{\def\@@put{\aput}\@cotation@}}%
+\newcommand*{\@cotation@}[1][]{\@cotation@i[#1]}%
+\def\@cotation@i[#1](#2,#3)(#4,#5)#6{%
+%               [styles](coordonn\'ees d\'ebut)(coordonn\'ees fin){Texte}
+	\presetkeys{Cotation}{%
+		styleTraitRappel=dashed,dashTraitRappel=1.5pt 1.5pt,widthTraitRappel=0.4pt,%
+		styleFleche=solid,dashFleche=\dashDefaut,widthFleche=0.7pt,%
+		decalFleche=0.5,%
+		decalTexte=0.5ex,%
+		depassTrait=0.15,%
+		rotationTexte=:U}{}%
+	\setkeys{Cotation}{#1}%
+	\@@TraitRappel{#2}{#3}{#4}{#5}{\@depassTrait}{\@decalFleche}%
+	\pcline[offset=\@decalFleche,linestyle=\@styleFleche,dash=\@dashFleche,linewidth=\@widthFleche]{<->}(! #2 #3)(! #4 #5)% trac\'e de la fl\`eche
+	\setlength{\pslabelsep}{\@decalTexte}% d\'efinit la osition du texte avec le d\'ecalage
+	\@@put{\@rotationTexte}{#6}% affichage du texte
+}
+
+\newcommand*{\@SiMoins}[1]{% est ce que #1 commence par un - ?
+	\def\@TesteAvantMoins##1-##2\@nil{%
+		\ifx\@empty##1\@empty
+			\expandafter\@firstoftwo%
+		\else%
+			\expandafter\@secondoftwo%
+		\fi%
+	}%
+	\@TesteAvantMoins#1-\@nil%
+}
+
+\newcommand*{\@MoinsEnNeg}[1]{%
+% si #1 est de la forme "-4" renvoie "4 neg"
+	\@SiMoins{#1}%
+		{\def\@@MoinsEnNeg-##1\@nil{##1 neg}}% si n\'egatif -> conversion
+		{\def\@@MoinsEnNeg##1\@nil{##1}}% sinon -> ne rien faire
+	\edef\@Resultat@MoinsEnNeg{\@@MoinsEnNeg#1\@nil}% on transmet le r\'esultat dans \@Resultat@MoinsEnNeg
+}
+
+\newcommand*{\@PlaceNom}[6]{%
+% #1 : nom du point
+% #2 : point de r\'ef\'erence
+% #3 et #4 : abscisse et ordonn\'ee
+% #5 et #6 : d\'ecalages horizontal et vertical
+	\@MoinsEnNeg{#5}%
+	\edef\@DecalH{\@Resultat@MoinsEnNeg}%
+	\@MoinsEnNeg{#6}%
+	\edef\@DecalV{\@Resultat@MoinsEnNeg}% #5 et #6 sont convertis en postscript et donc,
+	\@@PlaceNom{#1}{#2}{#3}{#4}{\@DecalH}{\@DecalV}% on appelle la macro
+}
+
+\newcommand{\@@PlaceNom}[6]{%
+	\rput[#2](! #3 #5 add #4 #6 add){#1}%
+}
+
+\define@key{NomPoints}{sizePointCentre}{\edef\@sizePointCentre{#1}}
+\define@key{NomPoints}{HdecalNomCentre}{\edef\@HdecalNomCentre{#1}}
+\define@key{NomPoints}{VdecalNomCentre}{\edef\@VdecalNomCentre{#1}}
+\define@key{NomPoints}{HdecalNomSommet}{\edef\@HdecalNomSommet{#1}}
+\define@key{NomPoints}{VdecalNomSommet}{\edef\@VdecalNomSommet{#1}}
+\define@key{NomPoints}{HdecalNomGauche}{\edef\@HdecalNomGauche{#1}}
+\define@key{NomPoints}{VdecalNomGauche}{\edef\@VdecalNomGauche{#1}}
+\define@key{NomPoints}{HdecalNomDroite}{\edef\@HdecalNomDroite{#1}}
+\define@key{NomPoints}{VdecalNomDroite}{\edef\@VdecalNomDroite{#1}}
+\newcommand*{\NomPoints}[8][]{%
+% Affiche les noms des points remarquables du c‚\`aö¬•ne, du Cylindre ou  de la sph\`ere
+% #1 : options
+% #2 : rayon                  R
+% #3 : coeff d'applatissement k
+% #4 : Hauteur                H
+% #5 : Nom de l'extr\'emit\'e diam\`etre gauche
+% #6 : Nom du centre du cercle
+% #7 : Nom de l'extr\'emit\'e diam\`etre droit
+% #8 : Nom du sommet
+	\ifdim #4cm<0cm%
+		\edef\@PC{b}%
+		\edef\@PS{t}%
+	\else%
+		\edef\@PC{br}%
+		\edef\@PS{b}%
+	\fi%
+	\presetkeys{NomPoints}{%
+		sizePointCentre=3pt,%
+		HdecalNomGauche=0,VdecalNomGauche=0,%
+		HdecalNomCentre=0,VdecalNomCentre=0,%
+		HdecalNomDroite=0,VdecalNomDroite=0,%
+		HdecalNomSommet=0,VdecalNomSommet=0}{}
+	\setkeys{NomPoints}{#1}%
+	\@PlaceNom{#5}{r}{#2 abs 0.2 add neg}{0}{\@HdecalNomGauche}{\@VdecalNomGauche}% nom gauche
+	\@PlaceNom{#6}{\@PC}{#4 0 lt{0}{0.1 neg} ifelse}{0.1}{\@HdecalNomCentre}{\@VdecalNomCentre}% nom centre
+	\@PlaceNom{#7}{l}{#2 abs 0.2 add}{0}{\@HdecalNomDroite}{\@VdecalNomDroite}% nom droite
+	\@PlaceNom{#8}{\@PS}{0}{#4 0 lt{#4 abs 0.2 add neg}{#4 0.2 add} ifelse}{\@HdecalNomSommet}{\@VdecalNomSommet}% nom sommet
+	\psdots[dotsize=\@sizePointCentre](0,0)% le point repr\'esentant le centre
+}
+
+\newcommand*{\@AngleDroit}[5][1]{%
+% [signe]{style}{\'epaisseur}{taille}
+	\pstVerb{/yy {#1 0 lt {#5 neg}{#5} ifelse} def}
+	\psline[linestyle=#2,dash=#3,linewidth=#4](! #5 0)(! #5 yy)(! 0 yy)
+}
+
+% _________________________________________________
+%|                                                 |
+%|                     Ellipse                     |
+%|_________________________________________________|
+
+
+
+
+
+
+
+\define@key{Ellipse}{styleHautEllipse}{\edef\@styleHautEllipse{#1}}%
+\define@key{Ellipse}{dashHautEllipse}{\edef\@dashHautEllipse{#1}}%
+\define@key{Ellipse}{widthHautEllipse}{\edef\@widthHautEllipse{#1}}%
+\define@key{Ellipse}{styleBasEllipse}{\edef\@styleBasEllipse{#1}}%
+\define@key{Ellipse}{dashBasEllipse}{\edef\@dashBasEllipse{#1}}%
+\define@key{Ellipse}{widthBasEllipse}{\edef\@widthBasEllipse{#1}}%
+\newcommand*{\Ellipse}[4][]{%
+% #1	styles
+% #2	ordonn\'ee de coupure (d\'elimite 2 parties de l'Ellipse en styles de Trait diff\'erents)
+% #3	demi Axe horizontal >0
+% #4 demi Axe vertical >0
+	\presetkeys{Ellipse}{%
+		styleHautEllipse=dashed,dashHautEllipse=\dashDefaut,widthHautEllipse=\widthDefaut,%
+		styleBasEllipse=solid,dashBasEllipse=\dashDefaut,widthBasEllipse=\widthDefaut}{}%
+	\setkeys{Ellipse}{#1}%
+	\@Ellipse{#2}{#3}{#4}%
+}
+\newcommand{\@Ellipse}[3]{%
+	\pstVerb{%
+		/AAsin {dup 1 gt {pop 90}{dup 1 neg lt {pop 90 neg}{asin} ifelse} ifelse} def%
+		/AAngl #1 #3 div AAsin def}%
+	\psellipticarc[linestyle=\@styleHautEllipse,dash=\@dashHautEllipse,linewidth=\@widthHautEllipse](0,0)(! #2 #3){! AAngl}{! 180 AAngl sub}% partie Haute
+	\psellipticarc[linestyle=\@styleBasEllipse,dash=\@dashBasEllipse,linewidth=\@widthBasEllipse](0,0)(! #2 #3){! AAngl 180 add neg}{! AAngl}% partie Basse
+}
+
+
+%%%%%%%%%GregEllipse
+\define@key{GregEllipse}{styleHautGregEllipse}{\edef\@styleHautGregEllipse{#1}}%
+\define@key{GregEllipse}{dashHautGregEllipse}{\edef\@dashHautGregEllipse{#1}}%
+\define@key{GregEllipse}{widthHautGregEllipse}{\edef\@widthHautGregEllipse{#1}}%
+\define@key{GregEllipse}{styleBasGregEllipse}{\edef\@styleBasGregEllipse{#1}}%
+\define@key{GregEllipse}{dashBasGregEllipse}{\edef\@dashBasGregEllipse{#1}}%
+\define@key{GregEllipse}{widthBasGregEllipse}{\edef\@widthBasGregEllipse{#1}}%
+\newcommand*{\GregEllipse}[4][]{%
+% #1	styles
+% #2	ordonn\'ee de coupure (d\'elimite 2 parties de l'Ellipse en styles de Trait diff\'erents)
+% #3	demi Axe horizontal >0
+% #4 demi Axe vertical >0
+	\presetkeys{GregEllipse}{%
+		styleHautGregEllipse=solid,dashHautGregEllipse=\dashDefaut,widthHautGregEllipse=\widthDefaut,%
+		styleBasGregEllipse=solid,dashBasGregEllipse=\dashDefaut,widthBasGregEllipse=\widthDefaut}{}%
+	\setkeys{GregEllipse}{#1}%
+	\@GregEllipse{#2}{#3}{#4}%
+}
+\newcommand{\@GregEllipse}[3]{%
+	\pstVerb{%
+		/AAsin {dup 1 gt {pop 90}{dup 1 neg lt {pop 90 neg}{asin} ifelse} ifelse} def%
+		/AAngl #1 #3 div AAsin def}%
+	\psellipticarc[linestyle=\@styleHautGregEllipse,dash=\@dashHautGregEllipse,linewidth=\@widthHautGregEllipse](0,0)(! #2 #3){! AAngl}{! 180 AAngl sub}% partie Haute
+	\psellipticarc[linestyle=\@styleBasGregEllipse,dash=\@dashBasGregEllipse,linewidth=\@widthBasGregEllipse](0,0)(! #2 #3){! AAngl 180 add neg}{! AAngl}% partie Basse
+}
+
+% _________________________________________________
+%|                                                 |
+%|                        Cone                     |
+%|_________________________________________________|
+
+\define@key{Cone}{styleHautCone}{\edef\@styleHautEllipse{#1}}%
+\define@key{Cone}{dashHautCone}{\edef\@dashHautEllipse{#1}}%
+\define@key{Cone}{widthHautCone}{\edef\@widthHautEllipse{#1}}%
+\define@key{Cone}{styleBasCone}{\edef\@styleBasEllipse{#1}}%
+\define@key{Cone}{dashBasCone}{\edef\@dashBasEllipse{#1}}%
+\define@key{Cone}{widthBasCone}{\edef\@widthBasEllipse{#1}}%
+\define@key{Cone}{styleGeneratriceCone}{\edef\@styleGeneratriceCone{#1}}%
+\define@key{Cone}{dashGeneratriceCone}{\edef\@dashGeneratriceCone{#1}}%
+\define@key{Cone}{widthGeneratriceCone}{\edef\@widthGeneratriceCone{#1}}%
+\newcommand*{\Cone}[4][]{%
+% #1	styles
+% #2	rayon R
+% #3	coeff d'aplatissement k
+% #4	Hauteur du c‚\`aö¬•ne H
+	\ifdim#4pt<0pt%
+		\def\@@styleHautCone{solid}%  si H<0, l'ellipse est en trait plein
+	\else%
+		\def\@@styleHautCone{dashed}% si H>0, partie haute en pointill\'es
+	\fi%
+	\presetkeys{Cone}{%
+		styleHautCone=\@@styleHautCone,dashHautCone=\dashDefaut,widthHautCone=\widthDefaut,%
+		styleBasCone=solid,dashBasCone=\dashDefaut,widthBasCone=\widthDefaut,%
+		styleGeneratriceCone=solid,dashGeneratriceCone=\dashDefaut,widthGeneratriceCone=\widthDefaut}{}%
+	\setkeys{Cone}{#1}%
+	\pstVerb{%
+		/bb #2 #3 mul def%                      bb:=kR             : demi grand Axe vertical
+		/yy bb dup mul #4 div def%              yy:=R^2*k^2/H      : ordonn\'ee du point de tangence
+		/xx 1 yy #4 div sub sqrt #2 mul def%    xx:=R*sqrt(1-yy/H) : abscisse du point de tangence
+	}%
+	\@Ellipse{yy}{#2}{bb}% trac\'e de la Base
+	\psline[linestyle=\@styleGeneratriceCone,dash=\@dashGeneratriceCone,linewidth=\@widthGeneratriceCone](! xx neg yy)(! 0 #4)(! xx yy)% les g\'en\'eratrices
+}
+
+\define@key{SectionCone}{styleHautSectionCone}{\edef\@styleHautEllipse{#1}}%
+\define@key{SectionCone}{dashHautSectionCone}{\edef\@dashHautEllipse{#1}}%
+\define@key{SectionCone}{widthHautSectionCone}{\edef\@widthHautEllipse{#1}}%
+\define@key{SectionCone}{styleBasSectionCone}{\edef\@styleBasEllipse{#1}}%
+\define@key{SectionCone}{dashBasSectionCone}{\edef\@dashBasEllipse{#1}}%
+\define@key{SectionCone}{widthBasSectionCone}{\edef\@widthBasEllipse{#1}}%
+\newcommand*{\SectionCone}[5][]{%
+% #1 : styles
+% #2 : rayon                  R
+% #3 : coeff d'applatissement k
+% #4 : Hauteur                H
+% #5 : ordonn\'ee de la section z (0<z<H)
+	\presetkeys{SectionCone}{%
+		styleHautSectionCone=dashed,dashHautSectionCone=\dashDefaut,widthHautSectionCone=\widthDefaut,%
+		styleBasSectionCone=solid,dashBasSectionCone=\dashDefaut,widthBasSectionCone=\widthDefaut%
+		}{}%
+	\setkeys{SectionCone}{#1}%
+	\pstVerb{%
+		/rr #2 #4 #5 sub mul #4 div def%    rr = R*(H-z)/H) : rayon de la section
+		/bb #3 rr mul def%                  bb:=k*rr        : demi grand Axe vertical
+		/yy bb dup mul #4 div def%          yy:=bb^2/H      : ordonn\'ee du point de tangence
+	}%
+	\rput(! 0 #5){\@Ellipse{yy}{rr}{bb}}%
+}
+
+\define@key{TroncCone}{styleTroncCone}{\edef\@styleTroncCone{#1}}
+\define@key{TroncCone}{dashTroncCone}{\edef\@dashTroncCone{#1}}
+\define@key{TroncCone}{widthTroncCone}{\edef\@widthTroncCone{#1}}
+\define@key{TroncCone}{styleTraitCacheTroncCone}{\edef\@styleTraitCacheTroncCone{#1}}
+\define@key{TroncCone}{dashTraitCacheTroncCone}{\edef\@dashTraitCacheTroncCone{#1}}
+\define@key{TroncCone}{widthTraitCacheTroncCone}{\edef\@widthTraitCacheTroncCone{#1}}
+\newcommand{\TroncCone}[5][]{\@ifnextchar[{\@TroncCone[#1]{#2}{#3}{#4}{#5}}{\@TroncCone[#1]{#2}{#3}{#4}{#5}[#3]}}%
+\def\@TroncCone[#1]#2#3#4#5[#6]{%
+% #1	styles
+% #2	rayon disque bas                     R1
+% #3	coeff d'aplatissement disque bas     k1
+% #4	hauteur du c‚\`aö¬•ne virtuel total        H
+% #5	hauteur du tronc de cone (|#3|<|#2|) h (du m\^eme signe que H)
+% #6	coeff d'aplatissement disque haut    k2
+	\presetkeys{TroncCone}{%
+		styleTroncCone=solid,dashTroncCone=\dashDefaut,widthTroncCone=\widthDefaut,%
+		styleTraitCacheTroncCone=dashed,dashTraitCacheTroncCone=\dashDefaut,widthTraitCacheTroncCone=\widthDefaut}{}%
+	\setkeys{TroncCone}{#1}%
+	\ifdim#4pt<0pt%
+		\def\@styleHautGrandeEllise{\@styleTroncCone}%
+		\def\@dashHautGrandeEllise{\@dashTroncCone}%
+		\def\@widthHautGrandeEllise{\@widthTroncCone}%
+		\def\@styleHautPetiteEllipse{\@styleTraitCacheTroncCone}%
+		\def\@dashHautPetiteEllipse{\@dashTraitCacheTroncCone}%
+		\def\@widthHautPetiteEllipse{\@widthTraitCacheTroncCone}%
+	\else%
+		\def\@styleHautGrandeEllise{\@styleTraitCacheTroncCone}%
+		\def\@dashHautGrandeEllise{\@dashTraitCacheTroncCone}%
+		\def\@widthHautGrandeEllise{\@widthTraitCacheTroncCone}%
+		\def\@styleHautPetiteEllipse{\@styleTroncCone}%
+		\def\@dashHautPetiteEllipse{\@dashTroncCone}%
+		\def\@widthHautPetiteEllipse{\@widthTroncCone}%
+	\fi%
+	\pstVerb{%
+		/bb #2 #3 mul def%                           bb :=k1*R1               : demi grand Axe vertical bas
+		/yb bb dup mul #4 div def%                   yb :=R1^2*k1^2/H         : ordonn\'ee du point de tangence bas
+		/xb 1 yb #4 div sub sqrt #2 mul def%         xb :=R1*sqrt(1-yb/H)     : abscisse du point de tangence bas
+		/rh #2 #4 #5 sub mul #4 div def%             rh :=R1*(H-h)/H)         : rayon de la section haut
+		/bh #6 rh mul def%                           bh :=k2*rh               : demi grand Axe vertical haut
+		/yh bh dup mul #4 #5 sub div def%            yh :=bh^2/(H-h)          : ordonn\'ee du point de tangence haut
+		/xh 1 yh #4 #5 sub div sub sqrt rh mul def%  xh:=rh*sqrt(1-yh/(H-h))  : abscisse du point de tangence haut
+	}%
+	\Ellipse[% grande ellipse
+		styleHautEllipse=\@styleHautGrandeEllise,%
+		dashHautEllipse=\@dashHautGrandeEllise,%
+		widthHautEllipse=\@widthHautGrandeEllise,
+		styleBasEllipse=\@styleTroncCone,%
+		dashBasEllipse=\@dashTroncCone,%
+		widthBasEllipse=\@widthTroncCone]{yb}{#2}{bb}%
+	\rput(! 0 #5){%
+		\Ellipse[% petite ellipse
+			styleHautEllipse=\@styleHautPetiteEllipse,%
+			dashHautEllipse=\@dashHautPetiteEllipse,%
+			widthHautEllipse=\@widthHautPetiteEllipse,%
+			styleBasEllipse=\@styleTroncCone,%
+			dashBasEllipse=\@dashTroncCone,%
+			widthBasEllipse=\@widthTroncCone]{yh}{rh}{bh}}%
+	\begingroup%
+		\psset{linestyle=\@styleTroncCone,dash=\@dashTroncCone,linewidth=\@widthTroncCone}%
+		\psline(! xb yb)(! xh yh #5 add)% les g\'en\'eratrices
+		\psline(! xb neg yb)(! xh neg yh #5 add)%
+	\endgroup%
+}
+
+\define@key{AxesCone}{styleAxeCone}{\edef\@styleAxeCone{#1}}
+\define@key{AxesCone}{dashAxeCone}{\edef\@dashAxeCone{#1}}
+\define@key{AxesCone}{widthAxeCone}{\edef\@widthAxeCone{#1}}
+\define@key{AxesCone}{styleDiametreCone}{\edef\@styleDiametreCone{#1}}
+\define@key{AxesCone}{dashDiametreCone}{\edef\@dashDiametreCone{#1}}
+\define@key{AxesCone}{widthDiametreCone}{\edef\@widthDiametreCone{#1}}
+\define@key{AxesCone}{styleCodageCone}{\edef\@styleCodageCone{#1}}
+\define@key{AxesCone}{dashCodageCone}{\edef\@dashCodageCone{#1}}
+\define@key{AxesCone}{widthCodageCone}{\edef\@widthCodageCone{#1}}
+\define@key{AxesCone}{tailleCodageCone}{\edef\@tailleCodageCone{#1}}
+\newcommand*{\AxesCone}[4][]{%
+% #1 : styles
+% #2 : rayon                  R
+% #3 : coeff d'applatissement k
+% #4 : Hauteur                H
+	\presetkeys{AxesCone}{%
+		styleAxeCone=dashed,dashAxeCone=\dashDefaut,widthAxeCone=\widthDefaut,%
+		styleDiametreCone=dashed,dashDiametreCone=\dashDefaut,widthDiametreCone=0.5pt,%
+		styleCodageCone=solid,dashCodageCone=1.5pt 1.5pt,widthCodageCone=0.5pt,tailleCodageCone=0.2%
+		}{}%
+	\setkeys{AxesCone}{#1}%
+	\@AxesCone{#2}{#3}{#4}%
+}
+\newcommand{\@AxesCone}[3]{%
+	\psline[linestyle=\@styleAxeCone,dash=\@dashAxeCone,linewidth=\@widthAxeCone](! 0 0)(! 0 #3)% Axe
+	\psline[linestyle=\@styleDiametreCone,dash=\@dashDiametreCone,linewidth=\@widthDiametreCone](! #1 neg 0)(! #1 0)% diam\`etre
+	\@AngleDroit[#3]{\@styleCodageCone}{\@dashCodageCone}{\@widthCodageCone}{\@tailleCodageCone}%
+}
+
+\define@key{AxesSectionCone}{styleDiametreSectionCone}{\edef\@styleDiametreCone{#1}}
+\define@key{AxesSectionCone}{dashDiametreSectionCone}{\edef\@dashDiametreCone{#1}}
+\define@key{AxesSectionCone}{widthDiametreSectionCone}{\edef\@widthDiametreCone{#1}}
+\define@key{AxesSectionCone}{styleCodageSectionCone}{\edef\@styleCodageCone{#1}}
+\define@key{AxesSectionCone}{dashCodageSectionCone}{\edef\@dashCodageCone{#1}}
+\define@key{AxesSectionCone}{widthCodageSectionCone}{\edef\@widthCodageCone{#1}}
+\define@key{AxesSectionCone}{tailleCodageSectionCone}{\edef\@tailleCodageCone{#1}}
+\newcommand*{\AxesSectionCone}[5][]{%
+% #1 : styles
+% #2 : rayon                  R
+% #3 : coeff d'applatissement k
+% #4 : Hauteur                H
+% #5 : ordonn\'ee de la section z
+
+	\edef\@styleAxeCone{none}% pas d'axe
+	\edef\@dashAxeCone{\dashDefaut}% inutile puisque non trac\'e
+	\edef\@widthAxeCone{\widthDefaut}% inutile puisque non trac\'e
+	\presetkeys{AxesSectionCone}{%
+		styleDiametreSectionCone=dashed,dashDiametreSectionCone=\dashDefaut,widthDiametreSectionCone=0.5pt,%
+		styleCodageSectionCone=solid,dashCodageSectionCone=1pt 1pt,widthCodageSectionCone=0.5pt,tailleCodageSectionCone=0.2%
+		}{}%
+	\setkeys{AxesSectionCone}{#1}%
+	\rput(! 0 #5){\@AxesCone{#2 #4 abs #5 abs sub mul #4 abs div}{#3}{#4}}%
+}
+
+\newcommand*{\NomSectionCone}[8][]{%
+% #1 : options
+% #2 : rayon                  R
+% #3 : coeff d'applatissement k
+% #4 : Hauteur                H
+% #5 : ordonn\'ee de la section z
+% #6 : Nom de l'extr\'emit\'e diam\`etre gauche
+% #7 : Nom du centre du cercle
+% #8 : Nom de l'extr\'emit\'e diam\`etre droit
+	\rput(! 0 #5){%
+		\NomPoints[#1]{#2 #4 abs #5 abs sub mul #4 abs div}{#3}{#4}{#6}{}{#8}{}% tous sauf le centre
+		\NomPoints[#1]{1}{1}{1}{}{#7}{}{}% le centre
+		}%
+}
+
+% _________________________________________________
+%|                                                 |
+%|                     Cylindre                    |
+%|_________________________________________________|
+\define@key{Cylindre}{styleCylindre}{\edef\@styleCylindre{#1}}
+\define@key{Cylindre}{dashCylindre}{\edef\@dashCylindre{#1}}
+\define@key{Cylindre}{widthCylindre}{\edef\@widthCylindre{#1}}
+\define@key{Cylindre}{styleTraitCacheCylindre}{\edef\@styleTraitCacheCylindre{#1}}
+\define@key{Cylindre}{dashTraitCacheCylindre}{\edef\@dashTraitCacheCylindre{#1}}
+\define@key{Cylindre}{widthTraitCacheCylindre}{\edef\@widthTraitCacheCylindre{#1}}
+\newcommand*{\Cylindre}[4][]{%
+% #1	styles
+% #2	rayon
+% #3	coeff d'aplatissement
+% #4	Hauteur
+	\presetkeys{Cylindre}{%
+		styleCylindre=solid,dashCylindre=\dashDefaut,widthCylindre=\widthDefaut,%
+		styleTraitCacheCylindre=dashed,dashTraitCacheCylindre=\dashDefaut,widthTraitCacheCylindre=\widthDefaut}{}%
+	\setkeys{Cylindre}{#1}%
+	\pstVerb{/rr #2 abs def /hh #4 abs def /bb rr #3 mul def}%
+	\Ellipse[%
+		styleHautEllipse=\@styleTraitCacheCylindre,dashHautEllipse=\@dashTraitCacheCylindre,widthHautEllipse=\@widthCylindre,%
+		styleBasEllipse=\@styleCylindre,dashBasEllipse=\@dashCylindre,widthBasEllipse=\@widthCylindre]{0}{rr}{bb}% la Base
+	\rput(! 0 #4){%
+		\Ellipse[%
+			styleHautEllipse=\@styleCylindre,dashHautEllipse=\@dashCylindre,widthHautEllipse=\@widthCylindre,%
+			styleBasEllipse=\@styleCylindre,dashHautEllipse=\@dashCylindre,widthBasEllipse=\@widthCylindre]{0}{rr}{bb}}% le Haut
+	\begingroup%
+		\psset{linestyle=\@styleCylindre,linewidth=\@widthCylindre}
+		\psline(! rr neg 0)(! rr neg #4)%
+		\psline(! rr 0)(! rr #4)% les g\'en\'eratrices
+	\endgroup%
+}
+
+\define@key{AxeCylindre}{styleAxeCylindre}{\edef\@styleAxeCone{#1}}
+\define@key{AxeCylindre}{dashAxeCylindre}{\edef\@dashAxeCone{#1}}
+\define@key{AxeCylindre}{widthAxeCylindre}{\edef\@widthAxeCone{#1}}
+\define@key{AxeCylindre}{styleDiametreCylindre}{\edef\@styleDiametreCone{#1}}
+\define@key{AxeCylindre}{dashDiametreCylindre}{\edef\@dashDiametreCone{#1}}
+\define@key{AxeCylindre}{widthDiametreCylindre}{\edef\@widthDiametreCone{#1}}
+\define@key{AxeCylindre}{styleCodageCylindre}{\edef\@styleCodageCone{#1}}
+\define@key{AxeCylindre}{dashCodageCylindre}{\edef\@dashCodageCone{#1}}
+\define@key{AxeCylindre}{widthCodageCylindre}{\edef\@widthCodageCone{#1}}
+\define@key{AxeCylindre}{tailleCodageCylindre}{\edef\@tailleCodageCone{#1}}
+\newcommand{\AxesCylindre}[4][]{%
+	\presetkeys{AxeCylindre}{%
+		styleAxeCylindre=dashed,dashAxeCylindre=\dashDefaut,widthAxeCylindre=\widthDefaut,%
+		styleDiametreCylindre=dashed,dashDiametreCylindre=\dashDefaut,widthDiametreCylindre=0.5pt,%
+		styleCodageCylindre=solid,dashCodageCylindre=1.5pt 1.5pt,widthCodageCylindre=0.5pt,tailleCodageCylindre=0.2%
+		}{}%
+	\setkeys{AxeCylindre}{#1}%
+	\@AxesCone{#2}{#3}{#4}%
+	\rput(! 0 #4){%
+		\@AngleDroit[-1]{\@styleCodageCone}{\@dashCodageCone}{\@widthCodageCone}{\@tailleCodageCone}%
+		\psline[linestyle=\@styleDiametreCone,dash=\@dashDiametreCone,linewidth=\@widthDiametreCone](! #2 neg 0)(! #2 0)}% diam\`etre
+}
+%%%%%%%%%%%%%%%%%%Cylindre fond blanc
+\define@key{GregCylindre}{styleGregCylindre}{\edef\@styleGregCylindre{#1}}
+\define@key{GregCylindre}{dashGregCylindre}{\edef\@dashGregCylindre{#1}}
+\define@key{GregCylindre}{widthGregCylindre}{\edef\@widthGregCylindre{#1}}
+\define@key{GregCylindre}{styleTraitCacheGregCylindre}{\edef\@styleTraitCacheGregCylindre{#1}}
+\define@key{GregCylindre}{dashTraitCacheGregCylindre}{\edef\@dashTraitCacheGregCylindre{#1}}
+\define@key{GregCylindre}{widthTraitCacheGregCylindre}{\edef\@widthTraitCacheGregCylindre{#1}}
+\newcommand*{\GregCylindre}[4][]{%
+% #1	styles
+% #2	rayon
+% #3	coeff d'aplatissement
+% #4	Hauteur
+	\presetkeys{GregCylindre}{%
+		styleGregCylindre=solid,dashGregCylindre=\dashDefaut,widthGregCylindre=\widthDefaut,%
+		styleTraitCacheGregCylindre=dashed,dashTraitCacheGregCylindre=\dashDefaut,widthTraitCacheGregCylindre=\widthDefaut}{}%
+	\setkeys{GregCylindre}{#1}%
+	\pstVerb{/rr #2 abs def /hh #4 abs def /bb rr #3 mul def}%
+	\GregEllipse[%
+		styleHautGregEllipse=\@styleTraitCacheGregCylindre,dashHautGregEllipse=\@dashTraitCacheGregCylindre,widthHautGregEllipse=\@widthGregCylindre,%
+		styleBasGregEllipse=\@styleGregCylindre,dashBasGregEllipse=\@dashGregCylindre,widthBasGregEllipse=\@widthGregCylindre]{0}{rr}{bb}% la Base
+	\rput(! 0 #4){%
+		\GregEllipse[%
+			styleHautGregEllipse=\@styleGregCylindre,dashHautGregEllipse=\@dashGregCylindre,widthHautGregEllipse=\@widthGregCylindre,%
+			styleBasGregEllipse=\@styleGregCylindre,dashHautGregEllipse=\@dashGregCylindre,widthBasGregEllipse=\@widthGregCylindre]{0}{rr}{bb}}% le Haut
+	\begingroup%
+		\psset{linestyle=\@styleGregCylindre,linewidth=\@widthGregCylindre}
+		\psline(! rr neg 0)(! rr neg #4)%
+		\psline(! rr 0)(! rr #4)% les g\'en\'eratrices
+	\endgroup%
+}
+
+\define@key{AxeGregCylindre}{styleAxeGregCylindre}{\edef\@styleAxeCone{#1}}
+\define@key{AxeGregCylindre}{dashAxeGregCylindre}{\edef\@dashAxeCone{#1}}
+\define@key{AxeGregCylindre}{widthAxeGregCylindre}{\edef\@widthAxeCone{#1}}
+\define@key{AxeGregCylindre}{styleDiametreGregCylindre}{\edef\@styleDiametreCone{#1}}
+\define@key{AxeGregCylindre}{dashDiametreGregCylindre}{\edef\@dashDiametreCone{#1}}
+\define@key{AxeGregCylindre}{widthDiametreGregCylindre}{\edef\@widthDiametreCone{#1}}
+\define@key{AxeGregCylindre}{styleCodageGregCylindre}{\edef\@styleCodageCone{#1}}
+\define@key{AxeGregCylindre}{dashCodageGregCylindre}{\edef\@dashCodageCone{#1}}
+\define@key{AxeGregCylindre}{widthCodageGregCylindre}{\edef\@widthCodageCone{#1}}
+\define@key{AxeGregCylindre}{tailleCodageGregCylindre}{\edef\@tailleCodageCone{#1}}
+\newcommand{\AxesGregCylindre}[4][]{%
+	\presetkeys{AxeGregCylindre}{%
+		styleAxeGregCylindre=dashed,dashAxeGregCylindre=\dashDefaut,widthAxeGregCylindre=\widthDefaut,%
+		styleDiametreGregCylindre=dashed,dashDiametreGregCylindre=\dashDefaut,widthDiametreGregCylindre=0.5pt,%
+		styleCodageGregCylindre=solid,dashCodageGregCylindre=1.5pt 1.5pt,widthCodageGregCylindre=0.5pt,tailleCodageGregCylindre=0.2%
+		}{}%
+	\setkeys{AxeGregCylindre}{#1}%
+	\@AxesCone{#2}{#3}{#4}%
+	\rput(! 0 #4){%
+		\@AngleDroit[-1]{\@styleCodageCone}{\@dashCodageCone}{\@widthCodageCone}{\@tailleCodageCone}%
+		\psline[linestyle=\@styleDiametreCone,dash=\@dashDiametreCone,linewidth=\@widthDiametreCone](! #2 neg 0)(! #2 0)}% diam\`etre
+}
+
+% _________________________________________________
+%|                                                 |
+%|                      Sph\`ere                     |
+%|_________________________________________________|
+\define@key{Sphere}{styleSphere}{\edef\@styleSphere{#1}}
+\define@key{Sphere}{dashSphere}{\edef\@dashSphere{#1}}
+\define@key{Sphere}{widthSphere}{\edef\@widthSphere{#1}}
+\define@key{Sphere}{styleBasEquateur}{\edef\@styleBasEllipse{#1}}
+\define@key{Sphere}{dashBasEquateur}{\edef\@dashBasEllipse{#1}}
+\define@key{Sphere}{widthBasEquateur}{\edef\@widthBasEllipse{#1}}
+\define@key{Sphere}{styleHautEquateur}{\edef\@styleHautEllipse{#1}}
+\define@key{Sphere}{dashHautEquateur}{\edef\@dashHautEllipse{#1}}
+\define@key{Sphere}{widthHautEquateur}{\edef\@widthHautEllipse{#1}}
+\newcommand*{\Sphere}[3][]{%
+% #1	styles
+% #2	rayon
+% #3 aplatissement de l'\'equateur
+	\presetkeys{Sphere}{%
+		styleSphere=solid,dashSphere=\dashDefaut,widthSphere=\widthDefaut,%
+		styleBasEquateur=solid,dashBasEquateur=\dashDefaut,widthBasEquateur=\widthDefaut,%
+		styleHautEquateur=dashed,dashHautEquateur=\dashDefaut,widthHautEquateur=\widthDefaut}{}%
+	\setkeys{Sphere}{#1}%
+	\pscircle[linestyle=\@styleSphere,dash=\@dashSphere,linewidth=\@widthSphere](! 0 0){#2}%
+	\@Ellipse{0}{#2}{#3 #2 mul}%
+}
+
+\define@key{SectionSphere}{styleBasSectionSphere}{\edef\@styleBasEllipse{#1}}
+\define@key{SectionSphere}{dashBasSectionSphere}{\edef\@dashBasEllipse{#1}}
+\define@key{SectionSphere}{widthBasSectionSphere}{\edef\@widthBasEllipse{#1}}
+\define@key{SectionSphere}{styleHautSectionSphere}{\edef\@styleHautEllipse{#1}}
+\define@key{SectionSphere}{dashHautSectionSphere}{\edef\@dashhatEllipse{#1}}
+\define@key{SectionSphere}{widthHautSectionSphere}{\edef\@widthHautEllipse{#1}}
+\newcommand*{\SectionSphere}[4][]{%
+% #1	styles
+% #2	rayon
+% #3	aplatissement de la section
+% #4	c‚\`aö¬•te de la section
+	\presetkeys{SectionSphere}{%
+		styleBasSectionSphere=solid,dashBasSectionSphere=\dashDefaut,widthBasSectionSphere=\widthDefaut,%
+		styleHautSectionSphere=dashed,dashHautSectionSphere=\dashDefaut,widthHautSectionSphere=\widthDefaut}{}%
+	\setkeys{SectionSphere}{#1}%
+	\pstVerb{/rr #4 dup mul #3 dup mul 1 sub div #2 dup mul add sqrt def}% rayon de l'ellipse repr\'esentant la section
+	\rput(! 0 #4){\@Ellipse{#3 dup mul #4 mul 1 #3 dup mul sub div}{rr}{rr #3 mul}}%
+}
+
+\define@key{AxesSphere}{styleAxeSphere}{\edef\@styleAxeSphere{#1}}
+\define@key{AxesSphere}{dashAxeSphere}{\edef\@dashAxeSphere{#1}}
+\define@key{AxesSphere}{widthAxeSphere}{\edef\@widthAxeSphere{#1}}
+\define@key{AxesSphere}{styleDimatreSphere}{\edef\@styleDiametreSphere{#1}}
+\define@key{AxesSphere}{dashDiametreSphere}{\edef\@dashDiametreSphere{#1}}
+\define@key{AxesSphere}{widthDiametreSphere}{\edef\@widthDiametreSphere{#1}}
+\define@key{AxesSphere}{styleCodageSphere}{\edef\@styleCodageSphere{#1}}
+\define@key{AxesSphere}{dashCodageSphere}{\edef\@dashCodageSphere{#1}}
+\define@key{AxesSphere}{widthCodageSphere}{\edef\@widthCodageSphere{#1}}
+\define@key{AxesSphere}{tailleCodageSphere}{\edef\@tailleCodageSphere{#1}}
+\newcommand{\AxesSphere}[3][]{\@ifnextchar[{\@AxeSphere[#1]{#2}{#3}}{\@AxeSphere[#1]{#2}{#3}[0.5]}}%
+\def\@AxeSphere[#1]#2#3[#4]{
+% #1	styles
+% #2	rayon
+% #3	aplatissement \'equateur
+% #4	d\'epassement au p‚\`aö¬•les, par d\'efaut 0.5
+	\presetkeys{AxesSphere}{%
+		styleAxeSphere=dashed,dashAxeSphere=5pt 2pt 2pt 2pt,widthAxeSphere=0.5pt,%
+		styleDimatreSphere=dashed,dashDiametreSphere=\dashDefaut,widthDiametreSphere=0.5pt,%
+		styleCodageSphere=solid,dashCodageSphere=1.5pt 1.5pt,widthCodageSphere=0.5pt,tailleCodageSphere=0.2}{}
+	\setkeys{AxesSphere}{#1}%
+	\psline[linestyle=\@styleAxeSphere,dash=\@dashAxeSphere,linewidth=\@widthAxeSphere](! 0 #2 #4 add neg)(! 0 #2 #4 add)% Axe
+	\psline[linestyle=\@styleDiametreSphere,dash=\@dashDiametreSphere,linewidth=\@widthDiametreSphere](! #2 neg 0)(! #2 0)% diam\`etre
+	\@AngleDroit[1]{\@styleCodageSphere}{\@dashCodageSphere}{\@widthCodageSphere}{\@tailleCodageSphere}% codage
+}
+
+\define@key{AxesSectionSphere}{styleDiametreSectionSphere}{\edef\@styleDiametreCone{#1}}
+\define@key{AxesSectionSphere}{dashDiametreSectionSphere}{\edef\@dashDiametreCone{#1}}
+\define@key{AxesSectionSphere}{widthDiametreSectionSphere}{\edef\@widthDiametreCone{#1}}
+\define@key{AxesSectionSphere}{styleCodageSectionSphere}{\edef\@styleCodageCone{#1}}
+\define@key{AxesSectionSphere}{dashCodageSectionSphere}{\edef\@dashCodageCone{#1}}
+\define@key{AxesSectionSphere}{widthCodageSectionSphere}{\edef\@widthCodageCone{#1}}
+\define@key{AxesSectionSphere}{tailleCodageSectionSphere}{\edef\@tailleCodageCone{#1}}
+\newcommand*{\AxesSectionSphere}[4][]{%
+% #1	styles
+% #2	rayon
+% #3	coeff d'aplatissement
+% #4	c‚\`aö¬•te de la section
+	\presetkeys{AxesSectionSphere}{%
+		styleDiametreSectionSphere=dashed,dashDiametreSectionSphere=\dashDefaut,widthDiametreSectionSphere=0.5pt,%
+		styleCodageSectionSphere=solid,dashCodageSectionSphere=\dashDefaut,widthCodageSectionSphere=0.5pt,tailleCodageSectionSphere=0.2}{}%
+	\setkeys{AxesSectionSphere}{#1}%
+	\edef\@styleAxeCone{none}% pas d'axe
+	\edef\@dashAxeCone{\dashDefaut}% inutile puisque non trac\'e
+	\edef\@widthAxeCone{\widthDefaut}% inutile puisque non trac\'e
+	\rput(! 0 #4){\@AxesCone{#4 dup mul #3 dup mul 1 sub div #2 dup mul add sqrt}{#3}{#2}}%
+}
+
+\newcommand*{\NomSectionSphere}[7][]{%
+% #1 : options
+% #2 : rayon                  R
+% #3 : coeff d'applatissement k
+% #4 : ordonn\'ee de la section z
+% #5 : Nom de l'extr\'emit\'e diam\`etre gauche
+% #6 : Nom du centre du cercle
+% #7 : Nom de l'extr\'emit\'e diam\`etre droit
+	\rput(! 0 #4){\NomPoints[#1]{#4 dup mul #3 dup mul 1 sub div #2 dup mul add sqrt}{#3}{1}{#5}{#6}{#7}{}}%
+}
+% _________________________________________________
+%|                                                 |
+%|                  Calotte sph\'erique              |
+%|_________________________________________________|
+\define@key{Calotte}{styleCalotte}{\edef\@styleCalotte{#1}}
+\define@key{Calotte}{dashCalotte}{\edef\@dashCalotte{#1}}
+\define@key{Calotte}{widthCalotte}{\edef\@widthCalotte{#1}}
+\define@key{Calotte}{styleBasCalotte}{\edef\@styleBasEllipse{#1}}
+\define@key{Calotte}{dashBasCalotte}{\edef\@dashBasEllipse{#1}}
+\define@key{Calotte}{widthBasCalotte}{\edef\@widthBasEllipse{#1}}
+\define@key{Calotte}{styleHautCalotte}{\edef\@styleHautEllipse{#1}}
+\define@key{Calotte}{dashHautCalotte}{\edef\@dashHautEllipse{#1}}
+\define@key{Calotte}{widthHautCalotte}{\edef\@widthHautEllipse{#1}}
+\newcommand*{\Calotte}[4][]{\@ifnextchar[{\@Calotte[#1]{#2}{#3}{#4}}{\@Calotte[#1]{#2}{#3}{#4}[B]}}%
+\def\@Calotte[#1]#2#3#4[#5]{%
+% #1	styles
+% #2	rayon Sphere
+% #3	aplatissement de la section
+% #4	c‚\`aö¬•te de la section
+% #5	optionnel [H] ou [B] selon que l'on veut la partie [H]aute ou [B]asse restante apr\`es coupe par un plan. Par d\'efaut B
+	\presetkeys{Calotte}{%
+		dashHautCalotte=\dashDefaut,widthHautCalotte=\widthDefaut,%
+		styleCalotte=solid,dashCalotte=\dashDefaut,widthCalotte=\widthDefaut,%
+		styleBasCalotte=solid,dashBasCalotte=\dashDefaut,widthBasCalotte=\widthDefaut}{}%
+	\pstVerb{%
+		/RR #2 dup mul def /kk #3 dup mul def%
+		/zz #4 dup mul def%
+		/rr zz kk 1 sub div RR add sqrt def% rayon de l'Ellipse repr\'esentant la section
+		/yy #4 1 kk sub div def% ordonn\'ee du point de tangence entre Ellipse et cercle
+		/AAangle yy #2 div asin def%
+	}%
+	\ifx B#5%
+		\presetkeys{Calotte}{styleHautCalotte=solid}{}%
+		\pstVerb{%
+			/debut AAangle 180 add neg def%
+			/fin AAangle def}%
+	\fi%
+	\ifx H#5%
+		\presetkeys{Calotte}{styleHautCalotte=dashed}{}%
+		\pstVerb{%
+			/debut AAangle def%
+			/fin 180 AAangle sub def}%
+	\fi%
+	\setkeys{Calotte}{#1}%
+	\psellipticarc[linestyle=\@styleCalotte,dash=\@dashCalotte,linewidth=\@widthCalotte](! 0 0)(! #2 #2){! debut}{! fin}%
+	\rput(! 0 #4){\@Ellipse{yy #4 sub}{rr}{rr #3 mul}}%
+}
+
+\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%AirePLGRect
+\newcommand{\AirePlgRect}[9]{
+%#(1;2)(3;4)(5;6)(7;8) les 4 points #9 hauteur 
+\psset{PointName=none,PointSymbol=none}
+\pstGeonode(#1,#2){A}(#3,#4){B}(#5,#6){C}(#7,#8){D}
+\pstProjection{A}{B}{C}[H]
+\pstProjection{A}{B}{D}[I]
+\pspolygon[linestyle=dashed,linewidth=1pt,linecolor=magenta](C)(H)(I)(D)
+\pstRightAngle[linewidth=1pt,linecolor=magenta,yunit=2,RightAngleSize=0.2]{C}{H}{I}
+\pstRightAngle[linewidth=1pt,linecolor=magenta,yunit=2,RightAngleSize=0.2]{H}{I}{D}
+\pspolygon(A)(B)(C)(D)
+\pcline[offset=19pt]{<->}(D)(I)\lput*{:U}{#9}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%une croix PointSymbol#1=dotscale #2 = node
+\newcommand{\PtSymbX}[2][2]{
+\psset{PointSymbol=none,PointName=none}
+\pstGeonode(0,0){Q1}(0.015,-0.01){Q2}
+%\newlength{\abscroix}
+%\setlength{\abscroix}{\pstAbscissa{#1}}
+%\addtolength{\abscroix}{0.015}
+\pstTranslation{Q1}{Q2}{#2}[Q3]
+\rput{45}(Q3){\pstGeonode[dotscale=#1,PointName=none,PointSymbol=+](0,0){Q}}
+%\rput{45}(O){\pstGeonode[PointName=none,PointSymbol=+](0,0){Q}}
+}
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%nieme essai de coloration d'item en blanc
+\newcommand{\enumbl}{\color{white}\item}
+%%%%%%%%%%%%%%%%%%%%%%%%%%% pour exclure des section de toc
+\newcommand{\stoptocwriting}{%
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{-5}}}
+\newcommand{\resumetocwriting}{%
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{\arabic{tocdepth}}}}
+%%%%%%%%%%%%%%%%%%index
+%%%%pour classer les umlaut correctement
+
+
+\renewcommand*\see[2]{\emph{\seename} #1}
+\makeindex[program=makeindex,title=Index des mots utilis\'es dans le livre\vspace{-2cm}, columns=3,intoc=true, columnsep=10pt]
+%\indexsetup{othercode={\vspace{-2cm}}}
