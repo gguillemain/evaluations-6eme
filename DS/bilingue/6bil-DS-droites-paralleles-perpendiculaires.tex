@@ -1,0 +1,81 @@
+%%!TEX TS-program = latex
+\include{../../debut}
+
+\begin{document}
+
+\section*{Devoir de synth\`ese}
+\addcontentsline{toc}{section}{Devoir de synth\`ese-Droites parall\`eles et perpendiculaires}
+
+\exo{"Ubung 1 : Besondere Geraden}\\
+Zu jeder Geraden zeichne in rot die senkrechte Gerade, die durch den Punkt geht.\\
+In gr"un zeichne zu der Geraden die parallele Gerade, die durch den Punkt geht.\\
+\emph{(Gerade und zugeh"origen Punkt haben denselben Name)}
+
+\exo{"Ubung 2 : Des figures et des triangles}\\
+Construis les figures suivantes au dos de la feuille.\\
+\begin{multicols}{3}
+\begin{pspicture*}(-5.27,-1.13)(15,7.25)
+\psgrid[subgriddiv=0,gridlabels=0,gridcolor=lightgray](0,0)(-5.27,-1.13)(14.72,7.25)
+\psset{xunit=0.5cm,yunit=0.5cm,algebraic=true,dotstyle=o,dotsize=3pt 0,linewidth=1pt,arrowsize=3pt 2,arrowinset=0.25}
+\psline[linecolor=blue](-2,5)(0,5)
+\psline[linecolor=blue](0,5)(-1,4)
+\psline[linecolor=blue](-1,4)(1,3)
+\psline[linecolor=blue](1,3)(0,2)
+\psline[linecolor=blue](0,2)(-2,3)
+\psline[linecolor=blue](-2,3)(-2,5)
+\psline(1,6)(1,1)
+\psline(6,0)(12,6)
+\pscircle[linecolor=blue](7.96,4){1.41}
+\begin{scriptsize}
+\psdots[dotstyle=+,linecolor=blue](7.96,4)
+\end{scriptsize}
+\rput(12.5,6.5){$\Delta$}
+\rput(1.2,0.5){$\Delta$}
+\end{pspicture*}
+
+\setlength{\columnseprule}{1pt}
+\end{multicols}
+
+\begin{multicols}{2}
+\exo{"Ubung 3 : }\\
+Zeichne das Bildfigur bei der Achsenspiegelung an $(g)$.\\
+\psset{xunit=1cm,yunit=1cm,algebraic=true,dotstyle=o,dotsize=3pt 0,linewidth=1pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(-2,-4.24)(7,8.9)
+\pspolygon[linecolor=blue](2,6)(0.83,3.71)(-1,6)(-1,2)(2,-2)
+\psline[linecolor=blue](2,6)(0.83,3.71)
+\psline[linecolor=blue](0.83,3.71)(-1,6)
+\psline[linecolor=blue](-1,6)(-1,2)
+\psline[linecolor=blue](-1,2)(2,-2)
+\psline[linecolor=blue](2,-2)(2,6)
+\psplot{-8}{14.54}{(-4--8*x)/4}
+\rput(-1,-4){$(g)$}
+\end{pspicture*}
+
+\columnbreak
+
+\exo{Exercice 4 : }
+\begin{enumerate}
+\item Trace un rectangle $ABCD$ tel que : $AB=8$cm et $BC=4$cm.
+\item Trace $E$ le sym\'etrique du point $A$ par la sym\'etrie d'axe $(BD)$.
+\item Quel est le sym\'etrique du segment $AB$ par la sym\'etrie d'axe $(BD)$. Quelle est sa mesure ? Justifie.
+\item Quelle est la mesure de l'angle $\widehat{DEB}$ ? Justifie.
+\item Quel est le p\'erim\`etre du rectangle $ABCD$.
+\item Sans calcul donne la mesure du p\'erim\`etre de $ABED$. Justifie.
+\end{enumerate}
+
+\exo{"Ubung 5 : }
+\begin{enumerate}
+\item Schreibe in \textbf{mm} : $4$cm ; $3$dm
+\item Schreibe in \textbf{cm} : $4,3$ dm ; $4,30$m
+\item Schreibe in \textbf{g} : $40$dg ; $2$kg
+\item Schreibe in \textbf{dag} : $457$hg ; $2,8$t
+\end{enumerate}
+
+\exo{Bonus : Francis et le camembert}\\
+Francis veut servir huit parts de camembert \`a ses invit\'es.\\
+Il coupe le camembert entier en trois coups de couteau.\\
+Comment obtient-il 8 parts de camembert en 3 coups de couteau ? 
+\setlength{\columnseprule}{1pt}
+\end{multicols}
+
+\end{document}
