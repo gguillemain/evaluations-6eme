@@ -1,0 +1,153 @@
+%%!TEX TS-program = latex
+\include{../../debut}
+
+\begin{document}
+
+\section*{Devoir de synth\`ese}
+\addcontentsline{toc}{section}{Devoir de synth\`ese-Fractions}
+
+\exo{"Ubung 1 : Darstellung von einem Bruch}
+\begin{multicols}{4}
+\setlength{\columnseprule}{1pt}
+Male $\dfrac{2}{3}$ des Rechtecks aus.\\
+\begin{pspicture}(0,0)(4,4)
+\multido{\i=0+1}{5}{
+\psline(\i,0)(\i,3)
+}
+\multido{\i=0+1}{4}{
+\psline(0,\i)(4,\i)
+}
+\end{pspicture}
+
+\columnbreak
+
+Der Fl"acheninhalt des Quadrates ist die Einheit.\\
+Bestimme den Bruch der gef"arbten Fl"ache.\\
+\begin{pspicture}(-1.5,0)(4,2.5)
+\multido{\i=0+2}{2}{
+\psline(0,\i)(2,\i)
+\psline(\i,0)(\i,2)
+}
+\pspolygon[fillstyle=solid,fillcolor=gray](0,0)(2,0)(1,1)
+\pspolygon[fillstyle=solid,fillcolor=gray](0,0)(0,2)(1,1)
+\pspolygon[fillstyle=solid,fillcolor=gray](1,1)(1,2)(2,2)
+\psline(0,1)(2,1)
+\psline(1,0)(1,1)
+\end{pspicture}
+
+\columnbreak
+
+Mit welcher Zahl muss man die Zahl $7$ multiplizieren um $5$ zu ergeben ?
+\columnbreak 
+
+Der Fl"acheninhalt des Rechtecks ist die Einheit.\\
+Bestimme den Bruch der gef"arbten Fl"ache.\\
+\begin{pspicture}(-1,0)(4,1.5)
+\psset{unit=0.6}
+\pspolygon[fillstyle=solid,fillcolor=gray](0,0)(3,0)(3,2)(0,2)
+\pspolygon[fillstyle=solid,fillcolor=gray](4,0)(5,0)(5,2)(4,2)
+\multido{\i=0+1}{3}{
+\psline(0,\i)(3,\i)
+}
+\multido{\i=0+1}{4}{
+\psline(\i,0)(\i,2)
+}
+\multido{\i=0+1}{3}{
+\psline(4,\i)(7,\i)
+}
+\multido{\i=4+1}{4}{
+\psline(\i,0)(\i,2)
+}
+\end{pspicture}
+\end{multicols}
+
+\exo{Exercice 2 : Fraction d'une quantit\'e}\\
+Calculer de trois fa\c{c}ons diff\'erentes si possible :
+\begin{multicols}{2}
+\begin{tabular}{llp{7cm}}
+$\dfrac{3}{4}$ de $20$&$=$&\dotfill\\
+&&\\
+&$=$&\dotfill\\
+&&\\
+&$=$&\dotfill\\
+\end{tabular}
+
+\columnbreak
+
+\begin{tabular}{llp{7cm}}
+$\dfrac{7}{3}$ de $15$&$=$&\dotfill\\
+&&\\
+&$=$&\dotfill\\
+&&\\
+&$=$&\dotfill\\
+\end{tabular}
+\end{multicols}
+
+\exo{"Ubung 3 : Zahlenstrahl}
+\begin{multicols}{2}
+\begin{enumerate}
+\item Wie hei\ss en die Br"uche, die zu den folgenden Punkten geh"oren ?\\
+  Gib, falls m"oglich, die gleichwertige Dezimalzahl an.
+  
+      \begin{DroiteGraduee}[none]{8}{0}{13}{1}{1}{0}{0}
+    \AfficheTexte{0}{-0.3}{0}
+\AfficheTexte{0}{0.3}{O}
+\AfficheTexte{3}{0.3}{M}
+\AfficheTexte{6}{0.3}{A}
+\AfficheTexte{8}{-0.3}{1}
+\AfficheTexte{9}{0.3}{T}
+\end{DroiteGraduee}
+
+\columnbreak
+\item Setze folgende Punkte auf dem Zahlenstrahl : \\
+$R(\dfrac{5}{6})$ ; $I(\dfrac{3}{2})$ ; $Z(\dfrac{2}{3})$
+
+\begin{DroiteGraduee}[none]{8}{0}{13}{1}{1}{0}{0}
+\AfficheTexte{0}{-0.3}{0}
+\AfficheTexte{6}{-0.3}{1}
+\end{DroiteGraduee}
+
+\end{enumerate}
+\end{multicols}
+
+\exo{"Ubung 4 : Gleichwertige Br"uche}\\
+Erg"anze die L"ucken.\\
+\begin{multicols}{4}
+$\dfrac{2}{3}=\dfrac{10}{\ldots}=\dfrac{\ldots}{12}$
+
+\columnbreak
+
+$\dfrac{15}{20}=\dfrac{3}{\ldots}=\dfrac{\ldots}{24}$
+\columnbreak
+
+$\dfrac{64}{56}=\dfrac{\ldots}{7}=\dfrac{40}{\ldots}$
+
+\columnbreak
+
+$0,25=\dfrac{1}{\ldots}=\dfrac{\ldots}{8}$
+
+\end{multicols}
+
+\exo{Exercice 5 : Probl\`emes}
+\begin{multicols}{2}
+\begin{enumerate}
+\item J\'er\^ome a particip\'e \`a une course en montagne de $21~km$ dont $3~km$ se passe dans les vignes, une deuxi\`eme partie en for\^et, et le reste sur la cr\^ete.
+\begin{enumerate}
+\item Les $\dfrac{4}{7}$ de la distance ont \'et\'e parcouru en for\^et.\\ Combien cela repr\'esente-t-il de $km$ ?
+\item Quelle distance a \'et\'e parcourue sur la cr\^ete?\\
+\end{enumerate}
+
+\columnbreak
+
+\item Un aquarium est rempli d'eau ; il a une contenance de $320~l$. \\
+On retire les $\dfrac{5}{8}$ de l'eau qu'il contient.\\
+Ensuite on retire les $\dfrac{7}{11}$ de l'eau qui reste dans l'aquarium.
+\begin{enumerate}
+\item Quelle quantit\'e d'eau a-t-on retir\'e en tout ?
+\item Quelle fraction de la contenance totale repr\'esente l'eau retir\'ee?
+\end{enumerate}
+
+\end{enumerate}
+\end{multicols}
+
+\end{document}
