@@ -1,0 +1,63 @@
+# LaTeX temporary files
+*.aux
+*.log
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+
+# Bibliography aux files
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+
+# BibTeX
+*.bbl
+*.blg
+
+# Index files
+*.idx
+*.ilg
+*.ind
+*.ist
+
+# Beamer
+*.nav
+*.pre
+*.snm
+*.vrb
+
+# Listings
+*.lol
+
+# Glossaries
+*.acn
+*.acr
+*.glg
+*.glo
+*.gls
+*.glsdefs
+
+# Mac OS specific files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Fichiers temporaires d'éditeur
+*~
+*.swp
+*.bak
+*.tmp
+
+# Dossiers de sortie
+build/
+dist/
+
+# On garde les fichiers source et PDF finaux
+!*.tex
+!*.pdf
