@@ -80,7 +80,7 @@ Mesure les angles et compl\`ete le tableau.
 \exo{Exercice 2 :}\\
 Trace en vraie grandeur.
 
-\begin{multicols}{2}
+%\begin{multicols}{2}
 \begin{pspicture}(-0.5,0)(4,3.5)
 \psset{PointSymbol=none,PointName=none,LabelSep=0.8}
 \pstGeonode(0,0){O}(2;87){A}(4,0){D}(0.25,0.3){X}(0,0.4){Y}(0,-0.3){Z}
@@ -111,12 +111,12 @@ Trace en vraie grandeur.
 \end{pspicture}
 
 
-\columnbreak
-
-\begin{pspicture}(2,0)(9,3.5)
+%\columnbreak
+\rput(10,0){
+\begin{pspicture}(-1,0)(9,3.5)
 %\psset{unit=0.7cm}
 \footnotesize
-\rput{45}(-3,0){
+\rput{50}(2.3,1.2){
 % triangleEFG
 \pscurve(0,0)(0.2,1)(0.6,2.7)(1,4)
 \pscurve(0,0)(1,0.9)(1.95,1.6)(3,2.5) 
@@ -132,7 +132,7 @@ Trace en vraie grandeur.
 \psarc(0,0){0.8}{41}{80}
 }
 %triangleHJK
-\rput{10}(-2,-1){
+\rput{10}(2,1){
 \rput{-90}(2,5){
 \psset{yunit=1.2}
 \pscurve(0,0)(0.2,1)(0.6,2.7)(1,4)
@@ -156,7 +156,7 @@ Trace en vraie grandeur.
 }
 
 %triangleLMN
-\rput(-0.5,0){
+\rput(3,2){
 \pscurve(4,0)(5.7,0.11)(6,0.07)(7,0)
 \pscurve(7,0)(7.59,1.5)(8.1,2.5)(9,4) 
 \pscurve(9,4)(6.4,2.4)(4.97,1.05)(4,0)
@@ -176,8 +176,8 @@ Trace en vraie grandeur.
 
 \normalsize
 \end{pspicture}
-
-\end{multicols}
+}
+%\end{multicols}
 
 \exo{Exercice 3 :}\\
 \begin{enumerate}

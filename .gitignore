@@ -10,6 +10,10 @@
 *.synctex.gz(busy)
 *.pdfsync
 
+#dvips
+*.dvi
+*.ps
+
 # Bibliography aux files
 *.bbl
 *.bcf
