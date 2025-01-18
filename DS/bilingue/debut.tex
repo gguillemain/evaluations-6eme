@@ -1,106 +1,72 @@
+\usepackage{auto-pst-pdf}
+\usepackage{pstricks-add}
+%\usepackage{etex}
 
-\usepackage{etex}%
-\usepackage{ae,lmodern}
-	\usepackage[latin1]{inputenc}
-	
+% Polices
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 
-	\usepackage[T1]{fontenc}
-\usepackage{emerald}
-	\usepackage{fouriernc}
+% Packages de base
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
 
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%LIVRE 5EME!!!!!!!!!!!!!!!!!!!!!!!!
-	\usepackage{frcursive}
-\usepackage{xlop}
-\usepackage{epic}
-\usepackage[usenames,dvipsnames]{color}
-\usepackage{icomma}
-	\renewcommand{\familydefault}{\sfdefault}
-\usepackage{footnotehyper}
-\usepackage{pst-all,pst-blur,pst-coil,pst-grad,pst-eucl}
-	\usepackage{amsmath,amssymb,amsfonts,textcomp,makeidx,mathcomp}
-	\renewcommand{\ttdefault}{lmtt}
-	\usepackage[normalem]{ulem}
-	\usepackage{fancybox}
-	\usepackage{tabularx}
-	\usepackage{pifont}
-	\usepackage{dcolumn}
-	\usepackage{textcomp}
-	\usepackage{multicol}
-	\usepackage{xifthen}
-	\usepackage{lscape}
-	\newcommand{\euro}{~\eurologo~}
-	\newcommand{\eurosans}{~\eurologo}
-	\usepackage{graphics}
-	\usepackage[frenchb]{babel}
-	\usepackage{german}
-	\usepackage[np]{numprint}
-	\usepackage{multirow}
-	\usepackage{array}
-	\usepackage{hhline}% des lignes complexes dans les taBleaux
-	\usepackage{cancel}% pour barrer des termes dans les formules
-	\usepackage{ifthen}% pour faire des tests
-        \usepackage{fp}% pour faire des calculs dans LaTeX
-        \usepackage{setspace}% 
-        \usepackage{enumitem}
-        \usepackage{geometry}
-        \usepackage[sf,sl,outermarks]{titlesec}
-        \usepackage[Glenn]{fncychap}
-        \usepackage{dashrule}
-\usepackage{tikz,simplekv}
-\usetikzlibrary{matrix,positioning}
-\usetikzlibrary{shapes,snakes}
-\usetikzlibrary{decorations.text}
+% Packages mathÃ©matiques
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{makeidx}
+\usepackage{mathcomp}
+\usepackage{pst-eucl}
+
+% Packages de mise en page
+\usepackage{fancybox}
+\usepackage{tabularx}
+\usepackage{pifont}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{xifthen}
+\usepackage{lscape}
+\usepackage{numprint}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{hhline}
+\usepackage{cancel}
+\usepackage{fp}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[a4paper,
+            top=1cm,
+            left=1.5cm,
+            bottom=1cm, 
+            right=1.5cm,
+            heightrounded,
+            includeheadfoot]{geometry}
+\usepackage[sf,sl,outermarks]{titlesec}
+\usepackage[Glenn]{fncychap}
+\usepackage{dashrule}
+
+% Packages graphiques 
+\usepackage{tikz}
+\usepackage{graphicx}
 \usepackage{colortbl}
-	\usepackage{lcg,calc}
-	\usepackage{graphicx}
-	\usepackage{lmodern}
-	\usepackage{comfortaa}
-	\usepackage{bclogo}
-		\usepackage{soul}%uderline custom
-\usepackage{scratch3}
+\usepackage{lcg}
+\usepackage{bclogo}
+\usepackage{soul}
 \usepackage{pst-platon}
-%\usepackage{pstplaton}
+
+% Configuration du document
 \usepackage{titletoc}
 \usepackage{tocloft}
-%\usepackage{makeidx}
 \usepackage{imakeidx}
-%\usepackage{tovsec2}
 \usepackage{chngcntr}
 \usepackage{pst-solides3d}
 \usepackage{pgfplots}
-\usetikzlibrary{calc,decorations.pathmorphing,patterns}
+\pgfplotsset{compat=1.17}
 
+% BibliothÃ¨ques TikZ
+\usetikzlibrary{matrix,positioning,shapes,decorations.text,calc,decorations.pathmorphing,patterns}
 
-
-\pgfdeclaredecoration{penciline}{initial}{
-    \state{initial}[width=+\pgfdecoratedinputsegmentremainingdistance,
-    auto corner on length=1mm,]{
-        \pgfpathcurveto%
-        {% From
-            \pgfqpoint{\pgfdecoratedinputsegmentremainingdistance}
-                      {\pgfdecorationsegmentamplitude}
-        }
-        {%  Control 1
-        \pgfmathrand
-        \pgfpointadd{\pgfqpoint{\pgfdecoratedinputsegmentremainingdistance}{0pt}}
-                    {\pgfqpoint{-\pgfdecorationsegmentaspect
-                     \pgfdecoratedinputsegmentremainingdistance}%
-                               {\pgfmathresult\pgfdecorationsegmentamplitude}
-                    }
-        }
-        {%TO 
-        \pgfpointadd{\pgfpointdecoratedinputsegmentlast}{\pgfpoint{1pt}{1pt}}
-        }
-    }
-    \state{final}{}
-}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  LAYOUT
-
-\setlength\paperheight{297mm}
-\setlength\paperwidth{210mm}
-\setlength{\textheight}{28cm}
-\setlength{\textwidth}{18cm}
-\geometry{top=0.2cm,left=1cm,bottom=0.7cm, right=1cm}
+% Resto de votre configuration (couleurs, commandes personnalisÃ©es, etc.)
 
 
 %ne pas se fier au nom
@@ -118,7 +84,7 @@
 
 
 
-%\renewcommand \thesection {\@arabic \c@section~-} %Tu as acc\`es a  \Alph, \alph, \Roman, \roman, \arabic
+%\renewcommand \thesection {\@arabic \c@section~-} %Tu as acc\`es aï¿½ \Alph, \alph, \Roman, \roman, \arabic
 
 \newsavebox{\circlebox}
 \savebox{\circlebox}{\fontencoding{OMS}\selectfont\Large\char13}
@@ -1481,7 +1447,7 @@
 % #5 : nombre d'intervalles sudivisant la graduation principale
 % #6 : Incrment entre 2 graduations principales
 % #7 : nombre de graduations principales re
-% #8 : nombre de graduations principales afficher aprs la derniÃre
+% #8 : nombre de graduations principales afficher aprs la derniï¿½re
 	\newdimen\x@gauche \newdimen\x@droite \newdimen\x@@unite
 	\newdimen\c@rrection \newdimen\n@m \newdimen\d@n
 	\x@@unite=1cm%       pour les conversions
