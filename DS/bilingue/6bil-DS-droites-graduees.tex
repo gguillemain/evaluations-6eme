@@ -1,0 +1,80 @@
+\documentclass[10pt,openany]{book}
+\input{../../debut}
+
+\begin{document}
+\section*{Devoir de synth\`ese}
+\addcontentsline{toc}{section}{Devoir de synth\`ese - Droites gradu\'ees}
+
+\begin{multicols}{2}
+\exo{\"Ubung 1 : Zahlenstrahl}\\
+\begin{enumerate}
+\item Wie hei\ss en die Br\"uche, die zu den folgenden Punkten geh\"oren ?\\
+  Gib, falls m\"oglich, die gleichwertige Dezimalzahl an.
+  
+      \begin{DroiteGraduee}[none]{8}{0}{13}{1}{1}{0}{0}
+    \AfficheTexte{0}{-0.3}{0}
+\AfficheTexte{0}{0.3}{O}
+\AfficheTexte{2}{0.3}{M}
+\AfficheTexte{4}{0.3}{A}
+\AfficheTexte{8}{-0.3}{1}
+\AfficheTexte{10}{0.3}{T}
+\end{DroiteGraduee}
+
+\columnbreak
+\item Setze folgende Punkte auf dem Zahlenstrahl : \\
+$H(\dfrac{1}{6})$ ; $E(\dfrac{1}{2})$ ; $P(\dfrac{4}{3})$
+
+\begin{DroiteGraduee}[none]{8}{0}{13}{1}{1}{0}{0}
+\AfficheTexte{0}{-0.3}{0}
+\AfficheTexte{6}{-0.3}{1}
+\end{DroiteGraduee}
+
+\end{enumerate}
+
+\end{multicols}
+
+\exo{\"Ubung 2 : Gleichwertige Br\"uche}\\
+Erg\"anze die L\"ucken.\\
+\begin{multicols}{4}
+$\dfrac{5}{8}=\dfrac{20}{\ldots}=\dfrac{\ldots}{64}$
+
+\columnbreak
+
+$\dfrac{12}{9}=\dfrac{4}{\ldots}=\dfrac{\ldots}{24}$
+\columnbreak
+
+$\dfrac{49}{56}=\dfrac{\ldots}{8}=\dfrac{35}{\ldots}$
+
+\columnbreak
+
+$0,25=\dfrac{1}{\ldots}=\dfrac{\ldots}{8}$
+
+\end{multicols}
+
+\exo{Exercice 3 : Probl\`emes}
+\begin{enumerate}
+\item Dans une classe de $26$ \'el\`eves, on forme des \'equipes de volley-ball ($6$ joueurs par \'equipe).\\
+Combien d'\'equipes peut on former ?
+
+\item B\"arbel kauft $5$ Hefte f\"ur  je $3,44$~\euro und $6$ P\"ackchen von Din-A4-Bl\"atter.\\
+Sie zahlt insgesamt $24,70$~\eurosans.\\
+Wieviel kostet ein P\"ackchen Din-A4-Bl\"atter ?
+\end{enumerate}
+
+\exo{Exercice 4 :}\\
+Convertir $7~653~s$ en $\ldots h \ldots min \ldots s$.
+
+\exo{\"Ubung 5 : } Zeichne das Bild den Figuren an der Gerade $(\Delta)$\\
+(Benutze das Gitter wenn es m\"oglich ist.)\\
+\begin{pspicture}(-6,0)(6,8)
+\psgrid[subgriddiv=2,gridlabels=0pt,gridcolor=darkgray](-6,6)
+\psline[linewidth=1.5pt](-6,3)(12,3)
+\pspolygon[linewidth=1.5pt](-6,5)(-4,3)(-3,6)
+\pspolygon[linewidth=1.5pt](-2,2)(0,4)(3,4.5)(1,2.5)
+\pstGeonode[dotscale=1.5,PointSymbol=x](8,5){O}
+\pstGeonode[PointName=none,PointSymbol=none](8,8){A}
+\pstCircleOA[linewidth=1.5pt]{O}{A}
+\rput(12.4,3){($\Delta$)}
+\end{pspicture}
+
+\end{document}
