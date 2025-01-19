@@ -2,11 +2,86 @@
 \input{../../debut}
 
 \begin{document}
-\pagestyle{empty}
-\section*{Devoir de synthèse}
-\addcontentsline{toc}{section}{Devoir de synthèse-Symétrie axiale}
+\section*{Devoir de synth\`ese}
+\addcontentsline{toc}{section}{Devoir de synth\`ese-Sym\'etrie axiale}
 
-\exo{"Ubung 1:}\\
-Zeichne alle Symmetrieachsen der Figuren.\\
-[Contenu exercices...]
+\exo{\"Ubung 1 :} Zeichne alle Symmetrieachsen der Figuren.\\ 
+\fontsize{72}{16}\selectfont\ding{68}\quad\ding{111}\quad\ding{47}\quad\ding{76}\quad\ding{34}\quad\ding{96}\normalsize
+
+\begin{multicols}{2}
+\exo{\"Ubung 2 : }
+\begin{enumerate}
+\item Zeichne eine Strecke $[AB]$ , sodass $AB=6$cm.
+\item Zeichne die Mittelsenkrechte $(d)$ von $[AB]$.
+\item Setze einen Punkt $M$ auf $(d)$ , sodass $AM=5$cm.
+\item Ohne zu messen finde die L\"ange von der Strecke $[MB]$.\\ Begr\"unde.
+\end{enumerate}
+
+\columnbreak
+\exo{Exercice 3 : } Trace le sym\'etrique des figures par rapport\\ \`a la droite $\Delta$.\\
+\psset{xunit=0.5cm,yunit=0.5cm}
+\begin{pspicture*}(-5.27,-1.13)(15,7.25)
+\psgrid[subgriddiv=0,gridlabels=0,gridcolor=lightgray](0,0)(-5.27,-1.13)(14.72,7.25)
+\psset{xunit=0.5cm,yunit=0.5cm,algebraic=true,dotstyle=o,dotsize=3pt 0,linewidth=1pt,arrowsize=3pt 2,arrowinset=0.25}
+\psline[linecolor=blue](-2,5)(0,5)
+\psline[linecolor=blue](0,5)(-1,4)
+\psline[linecolor=blue](-1,4)(1,3)
+\psline[linecolor=blue](1,3)(0,2)
+\psline[linecolor=blue](0,2)(-2,3)
+\psline[linecolor=blue](-2,3)(-2,5)
+\psline(1,6)(1,1)
+\psline(6,0)(12,6)
+\pscircle[linecolor=blue](7.96,4){1.41}
+\begin{scriptsize}
+\psdots[dotstyle=+,linecolor=blue](7.96,4)
+\end{scriptsize}
+\rput(12.5,6.5){$\Delta$}
+\rput(1.2,0.5){$\Delta$}
+\end{pspicture*}
+
+\setlength{\columnseprule}{1pt}
+\end{multicols}
+
+\begin{multicols}{2}
+\exo{\"Ubung 4 : }\\
+Zeichne das Bildfigur bei der Achsenspiegelung an $(g)$.\\
+\psset{xunit=1cm,yunit=1cm,algebraic=true,dotstyle=o,dotsize=3pt 0,linewidth=1pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(-2,-4.24)(7,8.9)
+\pspolygon[linecolor=blue](2,6)(0.83,3.71)(-1,6)(-1,2)(2,-2)
+\psline[linecolor=blue](2,6)(0.83,3.71)
+\psline[linecolor=blue](0.83,3.71)(-1,6)
+\psline[linecolor=blue](-1,6)(-1,2)
+\psline[linecolor=blue](-1,2)(2,-2)
+\psline[linecolor=blue](2,-2)(2,6)
+\psplot{-8}{14.54}{(-4--8*x)/4}
+\rput(-1,-4){$(g)$}
+\end{pspicture*}
+
+\columnbreak
+
+\exo{Exercice 5 : }
+\begin{enumerate}
+\item Trace un rectangle $ABCD$ tel que : $AB=8$cm et $BC=4$cm.
+\item Trace $E$ le sym\'etrique du point $A$ par la sym\'etrie d'axe $(BD)$.
+\item Quel est le sym\'etrique du segment $AB$ par la sym\'etrie d'axe $(BD)$. Quelle est sa mesure ? Justifie.
+\item Quelle est la mesure de l'angle $\widehat{DEB}$ ? Justifie.
+\item Quel est le p\'erim\`etre du rectangle $ABCD$.
+\item Sans calcul donne la mesure du p\'erim\`etre de $ABED$. Justifie.
+\end{enumerate}
+
+\exo{\"Ubung 6 : }
+\begin{enumerate}
+\item Schreibe in \textbf{mm} : $4$cm ; $3$dm
+\item Schreibe in \textbf{cm} : $4,3$ dm ; $4,30$m
+\item Schreibe in \textbf{g} : $40$dg ; $2$kg
+\item Schreibe in \textbf{dag} : $457$hg ; $2,8$t
+\end{enumerate}
+
+\exo{Bonus : Francis et le camembert}\\
+Francis veut servir huit parts de camembert \`a ses invit\'es.\\
+Il coupe le camembert entier en trois coups de couteau.\\
+Comment obtient-il 8 parts de camembert en 3 coups de couteau ? 
+
+\end{multicols}
+
 \end{document}
